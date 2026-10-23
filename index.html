@@ -998,14 +998,17 @@
         }, 5600);
       };
 
-      // État d'activation dynamique des sections pour animations d'entrée ET de sortie
-      const [visibleSections, setVisibleSections] = useState({
-        "section-hero": true,
-        "prestations": false,
-        "galerie": false,
-        "avis": false,
-        "contact": false,
-        "section-footer": false
+      // État d'activation dynamique des sections : sur mobile, tout est visible dès le départ ; sur desktop, révélé au scroll
+      const [visibleSections, setVisibleSections] = useState(() => {
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+        return {
+          "section-hero": true,
+          "prestations": isMobile,
+          "galerie": isMobile,
+          "avis": isMobile,
+          "contact": isMobile,
+          "section-footer": isMobile
+        };
       });
 
       // Index de section active pour la navigation par points
@@ -1182,25 +1185,37 @@
         };
       }, [splashDismissed, activeCategory, selectedServices, isMapFlipped, quoteModalOpen]);
 
-      // Observateur d'Intersection bidirectionnel pour ENTRÉE ET SORTIE avec Framer Motion feel
+      // Observateur d'Intersection : Sur desktop, révélation fluide avec persistance ; sur mobile, fluidité immédiate sans disparition intempestive
       useEffect(() => {
+        const isMobile = window.innerWidth < 1024;
+        
+        if (isMobile) {
+          setVisibleSections({
+            "section-hero": true,
+            "prestations": true,
+            "galerie": true,
+            "avis": true,
+            "contact": true,
+            "section-footer": true
+          });
+        }
+
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             const id = entry.target.id;
             const isVisible = entry.isIntersecting;
             
-            setVisibleSections(prev => ({
-              ...prev,
-              [id]: isVisible
-            }));
-
             if (isVisible) {
+              setVisibleSections(prev => ({
+                ...prev,
+                [id]: true // Une fois révélée, la section reste toujours visible au défilement !
+              }));
               const idx = SECTIONS_NAV.findIndex(s => s.id === id);
               if (idx !== -1) setCurrentSectionIndex(idx);
             }
           });
         }, { 
-          threshold: 0.2 // Déclenchement fluide à l'entrée et à la sortie
+          threshold: isMobile ? 0.05 : 0.15
         });
 
         SECTIONS_NAV.forEach(s => {
