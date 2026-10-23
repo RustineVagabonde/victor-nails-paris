@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victornails-paris.fr/sitemap.xml

@@ -1,0 +1,3221 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <script>
+    // Neutralisation synchrone immédiate de la restauration de scroll du navigateur
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    if (window.location.hash) {
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch(e) {}
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Victor Nails Paris 13 — Institut de Beauté Ongulaire & Soins d'Élite</title>
+  <meta name="description" content="Victor Nails Paris 13 (95 Rue de Patay). Manucure russe, pose gel, nail art et soins des pieds. Note 4.9★ sur 715 avis. Devis en direct et réservation immédiate.">
+  <link rel="canonical" href="https://victornails.fr">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="Victor Nails Paris 13 — Institut de Beauté Ongulaire & Soins d'Élite">
+  <meta property="og:description" content="Manucure russe, pose gel et beauté des pieds au 95 Rue de Patay, 75013 Paris. Devis en direct et réservation sans intermédiaire.">
+  <meta property="og:image" content="https://cdn1.treatwell.net/images/view/v2.i8180763.w1080.h720.xF55053F8/">
+  <meta property="og:url" content="https://victornails.fr">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Victor Nails Paris 13 — Onglerie d'Élite">
+  <meta name="twitter:description" content="Manucure russe, pose gel et soins des ongles d'exception à Paris 13. Note 4.9★ sur 715 avis.">
+  <meta name="twitter:image" content="https://cdn1.treatwell.net/images/view/v2.i8180763.w1080.h720.xF55053F8/">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>">
+
+  <!-- Polices Google : Playfair Display (Luxury Display) + Plus Jakarta Sans (UI) + JetBrains Mono (Données tabulaires) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            linen: {
+              DEFAULT: '#F7F5F0',
+              50: '#FBF9F5',
+              100: '#F7F5F0',
+              200: '#EFECE4',
+              300: '#E5E0D5',
+              400: '#D5CEC0'
+            },
+            ink: {
+              DEFAULT: '#141E2E',
+              pure: '#0F1724',
+              muted: '#4A5B73',
+              subtle: '#7889A0'
+            },
+            studio: {
+              DEFAULT: '#6AB3D8',
+              light: '#9ECDE5',
+              powder: '#CAE4F1',
+              soft: '#EDF5FA',
+              dark: '#4C809B'
+            },
+            nude: {
+              DEFAULT: '#E5C0C4',
+              soft: '#F5E6E8',
+              warm: '#DFC0A9'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          transitionDuration: {
+            '1200': '1200ms',
+            '1000': '1000ms',
+            '800': '800ms',
+          },
+          boxShadow: {
+            'luxury': '0 20px 40px -15px rgba(20, 30, 46, 0.07), 0 0 15px rgba(106, 179, 216, 0.06)',
+            'luxury-hover': '0 30px 60px -20px rgba(20, 30, 46, 0.12), 0 0 25px rgba(106, 179, 216, 0.15)',
+            'inner-soft': 'inset 0 2px 4px rgba(20, 30, 46, 0.04)',
+            'pill-glow': '0 0 25px rgba(106, 179, 216, 0.35), 0 4px 12px rgba(12, 18, 29, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- html2pdf.js for Client-Side PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- React 18 & ReactDOM Production UMD + Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+
+  <!-- Styles personnalisés & Moteur d'Animation Motion Physics + Snap Scroll -->
+  <style>
+    :root {
+      --bg-linen: #F7F5F0;
+      --bg-card: #FDFCF9;
+      --ink-primary: #141E2E;
+      --ink-muted: #53637A;
+      --studio-blue: #6AB3D8;
+      --studio-powder: #CAE4F1;
+    }
+
+    body {
+      background-color: var(--bg-linen);
+      color: var(--ink-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* CSS Scroll Snapping natif sur Desktop */
+    @media (min-width: 1024px) {
+      html {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+      .snap-section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        height: 100vh;
+        max-height: 100vh;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .snap-section {
+        min-height: 100vh;
+      }
+    }
+
+    /* Tabular numbers strict */
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Masque d'arche et porte architecturale en plein cintre */
+    .hero-door-mask {
+      border-radius: 320px 320px 0 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero-door-mask {
+        border-radius: 200px 200px 0 0;
+      }
+    }
+
+    /* Masquage de barre de défilement horizontal */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Effet 2.5D Tilt */
+    .perspective-card {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+    .perspective-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Effet 3D Flip Card interactif pour la carte Maps */
+    .perspective-1500 {
+      perspective: 1500px;
+    }
+    .flip-card-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flip-card-flipped {
+      transform: rotateY(180deg);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    /* Halos et Orbes de lumière flottants */
+    @keyframes floatOrb1 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.3; }
+      50% { transform: translate(40px, -30px) scale(1.15); opacity: 0.6; }
+    }
+    @keyframes floatOrb2 {
+      0%, 100% { transform: translate(0px, 0px) scale(1.1); opacity: 0.25; }
+      50% { transform: translate(-35px, 35px) scale(0.9); opacity: 0.55; }
+    }
+    .animate-float-orb-1 {
+      animation: floatOrb1 9s ease-in-out infinite;
+    }
+    .animate-float-orb-2 {
+      animation: floatOrb2 11s ease-in-out infinite;
+    }
+
+    /* --- SCÉNOGRAPHIE THÉÂTRALE DU SPLASH SCREEN (4 ACTES FLUIDES) --- */
+    
+    /* Acte 1 : Révélation aérienne de "Bienvenue chez Victor Nails" */
+    @keyframes splashWelcomeReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(-16px) scale(0.96);
+        letter-spacing: 0.14em;
+        filter: blur(8px);
+      }
+      60% {
+        opacity: 0.9;
+        filter: blur(1px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+        letter-spacing: 0.28em;
+        filter: blur(0px);
+      }
+    }
+    .animate-splash-welcome {
+      animation: splashWelcomeReveal 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+      opacity: 0;
+      will-change: transform, opacity, letter-spacing, filter;
+    }
+
+    /* Acte 2 : Lettres monumentales VICTOR NAILS */
+    @keyframes letterMotionIn {
+      0% {
+        opacity: 0;
+        transform: translateY(110%) rotateX(-45deg);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%) rotateX(0deg);
+        filter: blur(0px);
+      }
+    }
+    .letter-motion {
+      display: inline-block;
+      opacity: 0;
+      animation: letterMotionIn 1.35s ease-in-out forwards;
+      will-change: transform, opacity, filter;
+    }
+
+    /* Acte 3 : Révélation sérif soyeuse du sous-titre "Salon de manucure" */
+    @keyframes splashSubtitleReveal {
+      0% {
+        opacity: 0;
+        transform: translateX(28px) translateY(10px) skewX(-4deg);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0px) translateY(0px) skewX(0deg);
+        filter: blur(0px);
+      }
+    }
+    .animate-splash-subtitle {
+      animation: splashSubtitleReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards;
+      opacity: 0;
+      will-change: transform, opacity, filter;
+    }
+
+    /* Liaison scénique : Ligne funiculaire 1px s'étirant au centre */
+    @keyframes hairlineExpand {
+      0% { transform: scaleX(0); opacity: 0; }
+      100% { transform: scaleX(1); opacity: 1; }
+    }
+    .animate-hairline-grow {
+      transform-origin: center center;
+      animation: hairlineExpand 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    /* Acte 4 : Entrée triomphale et lueur du bouton "ENTRER DANS L'INSTITUT" */
+    @keyframes splashCtaEnter {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+        filter: blur(12px);
+      }
+      70% {
+        opacity: 0.95;
+        transform: translateY(-3px) scale(1.02);
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+        filter: blur(0px);
+      }
+    }
+    .animate-splash-cta-entry {
+      animation: splashCtaEnter 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
+      opacity: 0;
+      will-change: transform, opacity, filter;
+    }
+
+    /* Micro-mouvement invitant de la flèche d'entrée */
+    @keyframes arrowNudge {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(6px); }
+    }
+    .animate-arrow-nudge {
+      animation: arrowNudge 2.2s ease-in-out infinite 3.1s;
+    }
+
+    /* Pulsation magnétique continue de l'aura bleue minérale */
+    @keyframes pillBreathe {
+      0%, 100% { box-shadow: 0 0 15px rgba(106, 179, 216, 0.25); }
+      50% { box-shadow: 0 0 35px rgba(106, 179, 216, 0.5); }
+    }
+    .animate-pill-breathe {
+      animation: pillBreathe 3s ease-in-out infinite 3.1s;
+    }
+
+    /* Flottement doux de l'arche hero */
+    @keyframes gentleSway {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-gentle-sway {
+      animation: gentleSway 6s ease-in-out infinite;
+    }
+
+    /* Scénographie continue de franchissement de seuil (Portail Arche & Rack Focus Organique) */
+    @keyframes drawArcheStroke {
+      0% {
+        stroke-dashoffset: 2600;
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+    .portal-screen-fadeout {
+      opacity: 0 !important;
+      filter: blur(18px) !important;
+      transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1), filter 1.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+    .portal-content-fadeout {
+      opacity: 0 !important;
+      transform: scale(0.97) translateY(-10px) !important;
+      filter: blur(8px) !important;
+      transition: all 1.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+      pointer-events: none !important;
+    }
+
+    /* --- AXE A : MICRO-SURVOLS CASUAL & PHYSIQUES TIER S+ --- */
+    
+    /* 1. Cartes Galerie avec Perspective & Glow Dynamique */
+    .tilt-card-wrapper {
+      perspective: 1200px;
+      transform-style: preserve-3d;
+    }
+    .tilt-card-inner {
+      will-change: transform;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.08s ease-out, box-shadow 0.3s ease-out;
+    }
+    .tilt-card-inner.is-resting {
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease-out;
+    }
+    .tilt-card-wrapper:hover .tilt-card-inner {
+      box-shadow: 0 35px 70px -15px rgba(20, 30, 46, 0.22), 0 0 25px rgba(106, 179, 216, 0.18);
+    }
+    .tilt-card-glare {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.35) 0%, transparent 65%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      mix-blend-mode: overlay;
+      border-radius: inherit;
+    }
+    .tilt-card-wrapper:hover .tilt-card-glare {
+      opacity: 1;
+    }
+
+    /* 2. Boutons Magnétiques Universels (Magnetic CTA Tier S+) */
+    .magnetic-item {
+      transition: transform 0.75s ease-in-out, box-shadow 0.75s ease-in-out;
+      will-change: transform;
+      display: inline-flex;
+    }
+    .magnetic-item:hover {
+      box-shadow: 0 12px 28px -8px rgba(106, 179, 216, 0.3);
+    }
+
+    /* 3. Prestations Hover Ripple & Glissement */
+    .service-interactive-card {
+      transition: transform 0.75s ease-in-out, border-color 0.7s ease-in-out, background-color 0.7s ease-in-out, box-shadow 0.75s ease-in-out;
+      will-change: transform;
+      position: relative;
+    }
+    .service-interactive-card:hover {
+      transform: translateX(4px);
+    }
+    
+    /* 4. Shimmer border le long du devis en direct */
+    @keyframes borderGlowPulse {
+      0%, 100% { border-color: rgba(106, 179, 216, 0.4); box-shadow: 0 20px 40px -15px rgba(20, 30, 46, 0.07); }
+      50% { border-color: rgba(106, 179, 216, 0.85); box-shadow: 0 25px 50px -15px rgba(106, 179, 216, 0.25); }
+    }
+    .devis-glow-active {
+      animation: borderGlowPulse 4s ease-in-out infinite;
+    }
+
+    /* --- AXE B : DYNAMISME DU DEVIS (ODOMETER & SHIMMER FLASH) --- */
+    @keyframes priceFlash {
+      0% { transform: scale(1); filter: brightness(1); }
+      35% { transform: scale(1.1); filter: brightness(1.25); color: #4C809B; }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+    .animate-price-flash {
+      animation: priceFlash 0.9s ease-in-out;
+    }
+
+    @keyframes cartBadgePop {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.18); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-badge-pop {
+      animation: cartBadgePop 0.85s ease-in-out;
+    }
+
+    /* --- AXE C : DRAWER BOTTOM SHEET MOBILE ULTRA-ORGANIQUE --- */
+    @keyframes drawerSlideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0%); }
+    }
+    .animate-drawer-up {
+      animation: drawerSlideUp 0.9s ease-in-out forwards;
+    }
+    .drawer-grabber {
+      width: 44px;
+      height: 4px;
+      border-radius: 9999px;
+      background: #CFDEEE;
+      margin: 8px auto 14px auto;
+    }
+
+    /* --- AXE D : STAGGER TEXT REVEAL & PARALLAX --- */
+    .stagger-line-wrap {
+      overflow: hidden;
+      display: block;
+    }
+    .stagger-line-inner {
+      display: inline-block;
+      transition: transform 1.35s ease-in-out, opacity 1.35s ease-in-out;
+      will-change: transform, opacity;
+    }
+    .stagger-line-visible {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    .stagger-line-hidden {
+      transform: translateY(115%);
+      opacity: 0;
+    }
+
+    .hero-parallax-img {
+      transition: transform 0.65s ease-in-out;
+      will-change: transform;
+    }
+
+    /* --- ANIMATION DE LA NAVBAR (CINÉMATIQUE & ACTIVE PILL INDICATOR) --- */
+    @keyframes navbarSlideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    .animate-navbar-slide-down {
+      animation: navbarSlideDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+
+    .nav-link-btn {
+      position: relative;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      color: #555E6D;
+      transition: color 0.4s ease-in-out;
+    }
+    .nav-link-btn:hover {
+      color: #6AB3D8;
+    }
+    .nav-link-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      width: 0%;
+      height: 2px;
+      background-color: #6AB3D8;
+      border-radius: 9999px;
+      transform: translateX(-50%);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link-btn:hover::after {
+      width: 60%;
+    }
+
+    /* --- SCÉNOGRAPHIE HÉRO HISTOIRE : FLIP LOGO & STORY REVEAL --- */
+    @keyframes storyCardReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.97);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+        filter: blur(0px);
+      }
+    }
+    .animate-story-card {
+      animation: storyCardReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, opacity, filter;
+    }
+
+    /* --- SURVOL PRESTATIONS : EXPANSION SUR 2 COLONNES & PLEINE HAUTEUR --- */
+    .services-column-wrapper {
+      transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: width, transform;
+    }
+    
+    .services-expanded-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 12px;
+      transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (min-width: 1024px) {
+      .services-expanded-active .services-expanded-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+    }
+
+    /* Masquer complètement la scrollbar au survol */
+    .services-hide-scrollbar::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+    }
+    .services-hide-scrollbar {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+
+    /* --- SECTION CONTACT : TYPOGRAPHIE CINÉTIQUE EN ARRIÈRE-PLAN --- */
+    @keyframes kineticCharIn {
+      0% {
+        opacity: 0;
+        transform: translateY(34px) rotateX(-45deg) scale(0.92);
+        filter: blur(5px);
+      }
+      65% {
+        opacity: 0.95;
+        transform: translateY(-3px) rotateX(6deg) scale(1.02);
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) rotateX(0deg) scale(1);
+        filter: blur(0px);
+      }
+    }
+    .animate-kinetic-char {
+      display: inline-block;
+      transform-origin: bottom center;
+      animation: kineticCharIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+      will-change: transform, opacity, filter;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #EFECE4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CAE4F1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9ECDE5;
+    }
+
+    /* Styles d'impression & Export PDF officiel */
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #quote-pdf-template, #quote-pdf-template * {
+        visibility: visible !important;
+      }
+      #quote-pdf-template {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NailSalon",
+    "name": "Victor Nails",
+    "image": "https://cdn1.treatwell.net/images/view/v2.i8180763.w1080.h720.xF55053F8/",
+    "telephone": "+33145832020",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "95 Rue de Patay",
+      "addressLocality": "Paris",
+      "postalCode": "75013",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.8258,
+      "longitude": 2.3732
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "715"
+    },
+    "priceRange": "12€ - 82€",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "10:00",
+        "closes": "19:30"
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="selection:bg-studio-powder selection:text-ink">
+  <div id="root"></div>
+
+  <!-- Script d'assemblage React -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // Neutralisation absolue de la restauration de scroll du navigateur (évite tout décalage sur F5 / reload)
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (window.location.hash) {
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch(e) {}
+    }
+    window.scrollTo(0, 0);
+
+    // --- DONNÉES OFFICIELLES DU SALON EXTRAITES DE TREATWELL ---
+    const SALON_DATA = {
+      name: "Victor Nails",
+      address: "95 Rue de Patay, 75013 Paris",
+      metro: "Métro 14 — Olympiades & Bibliothèque François-Mitterrand (3 min)",
+      phone: "01 45 83 20 20",
+      phoneRaw: "+33145832020",
+      whatsapp: "33600000000",
+      instagram: "victor.nails13",
+      instagramUrl: "https://www.instagram.com/victor.nails13/",
+      treatwellUrl: "https://www.treatwell.fr/salon/victor-nails/",
+      hours: "Lundi au Samedi : 10h00 – 19h30",
+      rating: 4.9,
+      reviewCount: 715,
+      team: [
+        { 
+          name: "Hoa'", 
+          role: "Fondatrice & Experte Onglerie", 
+          bio: "Maîtrise chirurgicale de la manucure russe et architecture gel sculpté.",
+          experience: "8 ans d'expertise",
+          signature: "Contour cuticulaire haute précision",
+          specialties: ["Manucure Russe", "Architecture Gel", "Gainage"]
+        },
+        { 
+          name: "Lyly", 
+          role: "Styliste Ongulaire Senior", 
+          bio: "Spécialiste nail art délicat, baby-boomer et finitions haute précision.",
+          experience: "5 ans d'expertise",
+          signature: "Tracés joaillerie & chrome glaze",
+          specialties: ["Nail Art Fine-Line", "Chrome Glaze", "Baby-Boomer"]
+        },
+        { 
+          name: "Sary", 
+          role: "Praticienne Soins & Spa", 
+          bio: "Excellence du soin pédicure spa relaxant et cuticules impeccables.",
+          experience: "6 ans d'expertise",
+          signature: "Modelage relaxant & protocole callus",
+          specialties: ["Pédicure Spa", "Soin Callosités", "Limage Miroir"]
+        }
+      ]
+    };
+
+    // Catalogue complet extrait avec prix réels
+    const SERVICES_CATALOG = [
+      // Manucure & Gel
+      { id: "m1", category: "manucure", name: "Manucure simple sans vernis", price: 17, time: "30 min", desc: "Nettoyage précis des cuticules, limage sur-mesure et polissage soyeux.", popular: false },
+      { id: "m2", category: "manucure", name: "Manucure avec vernis normal", price: 22, time: "40 min", desc: "Soin complet des cuticules, mise en forme et application d'un vernis éclat.", popular: false },
+      { id: "m3", category: "manucure", name: "Pose de vernis normal seul", price: 12, time: "20 min", desc: "Application rapide et soignée de la teinte de votre choix.", popular: false },
+      { id: "m4", category: "manucure", name: "Pose de vernis semi-permanent seul", price: 25, time: "35 min", desc: "Tenue haute brillance sans écaillement garantie jusqu'à 3 semaines.", popular: true },
+      { id: "m5", category: "manucure", name: "Manucure complète + semi-permanent", price: 37, time: "50 min", desc: "Le soin signature : manucure en profondeur + pose de semi-permanent miroir.", popular: true },
+      { id: "m6", category: "gel", name: "Pose complète Gel (sans vernis)", price: 48, time: "70 min", desc: "Extensions ou renforcement sculpté pour des ongles galbés et ultra-solides.", popular: true },
+      { id: "m7", category: "gel", name: "Pose complète Gel + vernis normal", price: 48, time: "80 min", desc: "Extensions gel avec finition couleur éclatante de votre choix.", popular: false },
+      { id: "m8", category: "gel", name: "Remplissage Gel avec vernis normal", price: 43, time: "60 min", desc: "Entretien mensuel de votre pose gel et remise à niveau parfaite.", popular: false },
+      { id: "m9", category: "gel", name: "Supplément Gel sur ongles naturels + semi", price: 38, time: "60 min", desc: "Gainage protecteur renforçant les ongles fragiles sans rallongement artificiel.", popular: true },
+      
+      // Déposes & Réparations
+      { id: "d1", category: "soins", name: "Dépose semi-permanent douce", price: 7, time: "15 min", desc: "Retrait respectueux de l'ongle naturel sans ponçage agressif.", popular: false },
+      { id: "d2", category: "soins", name: "Dépose semi-permanent + Manucure", price: 22, time: "45 min", desc: "Dépose soignée suivie d'un soin nutritif complet pour régénérer la matrice.", popular: false },
+      { id: "d3", category: "soins", name: "Dépose Gel / Résine faux ongles", price: 13, time: "30 min", desc: "Retrait intégral sécurisé et bain d'huile réparateur pour cuticules.", popular: false },
+      { id: "d4", category: "soins", name: "Réparation d'un ongle cassé", price: 5, time: "10 min", desc: "Reconstruction invisible et consolidation immédiate.", popular: false },
+      { id: "d5", category: "soins", name: "Supplément French / Nail Art d'auteur", price: 5, time: "15 min", desc: "French moderne, baby boomer, effet chrome glacé ou strass sur-mesure.", popular: true },
+
+      // Beauté des Pieds
+      { id: "p1", category: "pedicure", name: "Beauté des pieds sans vernis", price: 29, time: "45 min", desc: "Gommage doux, élimination des callosités, soin des cuticules et hydratation.", popular: false },
+      { id: "p2", category: "pedicure", name: "Beauté des pieds + vernis classique", price: 33, time: "55 min", desc: "Soin relaxant complet des pieds suivi de la pose de vernis éclat.", popular: false },
+      { id: "p3", category: "pedicure", name: "Beauté des pieds + semi-permanent", price: 49, time: "60 min", desc: "Le soin absolu : douceur des pieds et brillance gel longue tenue 4 semaines.", popular: true },
+      { id: "p4", category: "pedicure", name: "Pose vernis semi-permanent pieds seul", price: 25, time: "35 min", desc: "Application rapide et tenue impeccable pour vos sandales et escapades.", popular: false },
+      { id: "p5", category: "pedicure", name: "Duo Manucure + Beauté des pieds (vernis)", price: 52, time: "90 min", desc: "Formule combo mains et pieds sublimés en une seule séance relaxante.", popular: true },
+      { id: "p6", category: "pedicure", name: "Duo Manucure + Beauté pieds (semi-permanent)", price: 82, time: "110 min", desc: "Le rituel d'exception : zéro défaut mains & pieds pour 1 mois de tranquillité.", popular: true }
+    ];
+
+    // Avis clients certifiés Treatwell avec métriques détaillées
+    const REVIEWS_DATA = [
+      {
+        author: "Camille D.",
+        date: "Il y a 3 jours",
+        rating: 5,
+        service: "Manucure Russe + Semi-permanent",
+        text: "Hoa est une magicienne ! La manucure russe est d'une propreté exemplaire et le semi-permanent n'a pas bougé d'un millimètre après 3 semaines. Salon apaisant et très propre.",
+        verified: true,
+        tags: ["Manucure Russe", "Tenue 3+ sem."],
+        scoreDetails: "Précision : 5/5 • Tenue : 5/5 • Hygiène : 5/5"
+      },
+      {
+        author: "Léa M.",
+        date: "Il y a 1 semaine",
+        rating: 5,
+        service: "Pose complète Gel & Nail Art",
+        text: "Mon premier passage chez Victor Nails et certainement pas le dernier. Lyly a reproduit exactement le nail art que j'avais sur ma photo d'inspiration. Ambiance calme avec un délicieux thé.",
+        verified: true,
+        tags: ["Nail Art d'Auteur", "Finition Chrome"],
+        scoreDetails: "Écoute : 5/5 • Finition : 5/5 • Confort : 5/5"
+      },
+      {
+        author: "Sophie V.",
+        date: "Il y a 2 semaines",
+        rating: 5,
+        service: "Duo Mains & Pieds Semi-permanent",
+        text: "Rapport qualité-prix imbattable à Paris 13. À deux pas du métro 14, équipe douce, attentionnée et très rapide sans jamais bâcler. 715 avis amplement mérités !",
+        verified: true,
+        tags: ["Duo Mains & Pieds", "Soin Express"],
+        scoreDetails: "Ponctualité : 5/5 • Douceur : 5/5 • Résultat : 5/5"
+      }
+    ];
+
+    // Liste des identifiants des 6 sections du Snap Scroll (dont le Footer Monumental)
+    const SECTIONS_NAV = [
+      { id: "section-hero", label: "Accueil" },
+      { id: "prestations", label: "Prestations" },
+      { id: "galerie", label: "Inspirations" },
+      { id: "avis", label: "Avis & Équipe" },
+      { id: "contact", label: "Accès" },
+      { id: "section-footer", label: "Footer" }
+    ];
+
+    // Composant utilitaire Tilt 3D physique pour les cartes d'inspiration
+    function TiltCard({ children, className = "" }) {
+      const cardRef = useRef(null);
+      const [transformStyle, setTransformStyle] = useState("");
+      const [isHovered, setIsHovered] = useState(false);
+
+      const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        // Rotation dynamique 3D plus sensible & tactile (max 14 deg)
+        const rotateX = ((y - centerY) / centerY) * -14;
+        const rotateY = ((x - centerX) / centerX) * 14;
+        
+        cardRef.current.style.setProperty("--mouse-x", `${(x / rect.width) * 100}%`);
+        cardRef.current.style.setProperty("--mouse-y", `${(y / rect.height) * 100}%`);
+        setTransformStyle(`perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.04, 1.04, 1.04)`);
+        setIsHovered(true);
+      };
+
+      const handleMouseLeave = () => {
+        setIsHovered(false);
+        setTransformStyle("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
+      };
+
+      return (
+        <div 
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className={`tilt-card-wrapper ${className}`}
+        >
+          <div 
+            className={`tilt-card-inner h-full w-full ${isHovered ? "is-hovered" : "is-resting"}`}
+            style={{ transform: transformStyle }}
+          >
+            {children}
+            <div className="tilt-card-glare"></div>
+          </div>
+        </div>
+      );
+    }
+
+    // Composant Compteur Odometer animé physique
+    function AnimatedPriceCounter({ value }) {
+      const [displayValue, setDisplayValue] = useState(value);
+      const [isFlashing, setIsFlashing] = useState(false);
+
+      useEffect(() => {
+        if (value === displayValue) return;
+        setIsFlashing(true);
+        const timer = setTimeout(() => {
+          setIsFlashing(false);
+        }, 400);
+
+        const start = displayValue;
+        const end = value;
+        const duration = 780;
+        const startTime = performance.now();
+
+        const step = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.round(start + (end - start) * progress);
+          setDisplayValue(current);
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            setDisplayValue(end);
+          }
+        };
+        requestAnimationFrame(step);
+
+        return () => clearTimeout(timer);
+      }, [value]);
+
+      return (
+        <span className={`inline-block font-mono font-bold tabular-nums transition-transform ${isFlashing ? "animate-price-flash" : ""}`}>
+          {displayValue},00 €
+        </span>
+      );
+    }
+
+    // Composant utilitaire Bouton Magnétique doux
+    function MagneticButton({ children, className = "", onClick, ...props }) {
+      const btnRef = useRef(null);
+      const [pos, setPos] = useState({ x: 0, y: 0 });
+
+      const handleMouseMove = (e) => {
+        if (!btnRef.current) return;
+        const rect = btnRef.current.getBoundingClientRect();
+        const x = (e.clientX - (rect.left + rect.width / 2)) * 0.28;
+        const y = (e.clientY - (rect.top + rect.height / 2)) * 0.28;
+        setPos({ x, y });
+      };
+
+      const handleMouseLeave = () => {
+        setPos({ x: 0, y: 0 });
+      };
+
+      return (
+        <div 
+          ref={btnRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{ transform: `translate3d(${pos.x}px, ${pos.y}px, 0px)` }}
+          className="inline-block magnetic-btn"
+        >
+          <button 
+            className={className} 
+            onClick={onClick} 
+            {...props}
+          >
+            {children}
+          </button>
+        </div>
+      );
+    }
+
+    // --- COMPOSANT PRINCIPAL DE L'APPLICATION ---
+    function VictorNailsApp() {
+      // État de l'écran d'accueil / Splash screen minimaliste
+      const [splashDismissed, setSplashDismissed] = useState(false);
+
+      // Scénographie optique de franchissement de seuil (Tracé -> Lumière blanche -> Fondu du site -> Mise au point de l'arche)
+      // 'idle' | 'door_drawing' | 'light_flood' | 'light_fading' | 'focus_rack' | 'dismissed'
+      const [portalStage, setPortalStage] = useState('idle');
+      const [archeTarget, setArcheTarget] = useState({ left: 0, top: 0, width: 0, height: 0 });
+
+      const handleEnterInstitut = (e) => {
+        if (e) e.stopPropagation();
+        if (portalStage !== 'idle' || splashDismissed) return;
+
+        // Forcer le scroll à zéro absolu avant mesure
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        // Mesurer la géométrie précise de l'arche du Hero (déjà superposée au chargement)
+        const doorEl = document.getElementById('hero-arche-door');
+
+        let target = { left: 0, top: 0, width: 0, height: 0 };
+        if (doorEl) {
+          const r = doorEl.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            target = { left: r.left, top: r.top, width: r.width, height: r.height };
+          }
+        }
+        if (target.width === 0) {
+          const isMobile = window.innerWidth < 1024;
+          const w = isMobile ? Math.min(360, window.innerWidth - 32) : Math.min(520, window.innerWidth * 0.38);
+          target = {
+            left: isMobile ? (window.innerWidth - w) / 2 : window.innerWidth * 0.58,
+            top: isMobile ? 120 : (window.innerHeight - 620) / 2,
+            width: w,
+            height: isMobile ? 520 : 620
+          };
+        }
+
+        setArcheTarget(target);
+        setPortalStage('door_drawing');
+
+        // Scénographie Organique Développée (~5.8s au total)
+        // Acte 1 (0 -> 1500ms) : Le texte du vestibule s'estompe en apesanteur, le liseré lumineux trace l'arche à l'encre d'or
+        // Acte 2 (1500 -> 2900ms) : Seuil franchi, diffusion volumétrique du blanc lumineux (#FAF8F5), l'obscurité s'évapore
+        setTimeout(() => {
+          setPortalStage('light_flood');
+        }, 1500);
+
+        // Acte 3 (2900 -> 3900ms) : Dissipation soyeuse du blanc lumineux, éclosion progressive de l'espace lin du site
+        setTimeout(() => {
+          setPortalStage('light_fading');
+        }, 2900);
+
+        // Acte 4 (3900 -> 5500ms) : Rack focus photographique 35mm f/1.2 sur l'arche 1:1 (bokeh vaporeux -> netteté pure)
+        setTimeout(() => {
+          setPortalStage('focus_rack');
+        }, 3900);
+
+        // Acte 5 (5600ms) : Atterrissage final stabilisé, immersion complète et navbar posée
+        setTimeout(() => {
+          setPortalStage('dismissed');
+          setSplashDismissed(true);
+        }, 5600);
+      };
+
+      // État d'activation dynamique des sections pour animations d'entrée ET de sortie
+      const [visibleSections, setVisibleSections] = useState({
+        "section-hero": true,
+        "prestations": false,
+        "galerie": false,
+        "avis": false,
+        "contact": false,
+        "section-footer": false
+      });
+
+      // Index de section active pour la navigation par points
+      const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+
+      // État de sélection du devis
+      const [selectedServices, setSelectedServices] = useState([]);
+      const [activeCategory, setActiveCategory] = useState("all");
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [isMapFlipped, setIsMapFlipped] = useState(false);
+      const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+      const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+      const [heroParallax, setHeroParallax] = useState({ x: 0, y: 0 });
+      const [isServicesHovered, setIsServicesHovered] = useState(false);
+
+      // États d'interaction et d'extension pour la section Avis & Équipe
+      const [hoveredReviewIndex, setHoveredReviewIndex] = useState(null);
+      const [hoveredTeamIndex, setHoveredTeamIndex] = useState(null);
+
+      // Texte réactif monumental d'arrière-plan de la section Contact (2e plan)
+      const [contactHoverText, setContactHoverText] = useState("Nous vous attendons");
+
+      // Scénographie Hero Histoire : 'idle' | 'arming' | 'story'
+      const [heroStoryState, setHeroStoryState] = useState('idle');
+      const storyStateRef = useRef('idle');
+      const hoverStoryTimerRef = useRef(null);
+
+      useEffect(() => {
+        storyStateRef.current = heroStoryState;
+      }, [heroStoryState]);
+
+      // Gestion du survol prolongé (1.5s) sur le texte Hero
+      const handleStoryMouseEnter = () => {
+        if (storyStateRef.current === 'idle') {
+          storyStateRef.current = 'arming';
+          setHeroStoryState('arming');
+          if (hoverStoryTimerRef.current) clearTimeout(hoverStoryTimerRef.current);
+          hoverStoryTimerRef.current = setTimeout(() => {
+            if (storyStateRef.current === 'arming') {
+              storyStateRef.current = 'story';
+              setHeroStoryState('story');
+            }
+          }, 1500);
+        }
+      };
+
+      const handleStoryMouseLeave = () => {
+        if (storyStateRef.current === 'arming') {
+          if (hoverStoryTimerRef.current) clearTimeout(hoverStoryTimerRef.current);
+          storyStateRef.current = 'idle';
+          setHeroStoryState('idle');
+        }
+      };
+
+      // Au clic n'importe où sur la page lorsque l'histoire est active, retour en sens inverse
+      useEffect(() => {
+        if (heroStoryState === 'story') {
+          const handleGlobalPageClick = () => {
+            storyStateRef.current = 'idle';
+            setHeroStoryState('idle');
+          };
+          const timer = setTimeout(() => {
+            window.addEventListener('click', handleGlobalPageClick);
+          }, 100);
+          return () => {
+            clearTimeout(timer);
+            window.removeEventListener('click', handleGlobalPageClick);
+          };
+        }
+      }, [heroStoryState]);
+
+      // Vue élargie active si survolée
+      const isExpanded = isServicesHovered;
+
+      // Verrouillage étanche du scroll pendant le rideau d'accueil et la scénographie
+      useEffect(() => {
+        const resetScroll = () => {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          if (document.body) document.body.scrollTop = 0;
+        };
+
+        resetScroll();
+
+        const handleScrollLock = () => {
+          if (!splashDismissed && (window.scrollY !== 0 || document.documentElement.scrollTop !== 0)) {
+            resetScroll();
+          }
+        };
+
+        if (!splashDismissed) {
+          document.documentElement.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden';
+          window.addEventListener('scroll', handleScrollLock, { passive: false });
+        } else {
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+        }
+
+        const handlePageShow = () => resetScroll();
+        window.addEventListener('pageshow', handlePageShow);
+
+        return () => {
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+          window.removeEventListener('scroll', handleScrollLock);
+          window.removeEventListener('pageshow', handlePageShow);
+        };
+      }, [splashDismissed]);
+
+      // Rafraîchir les icônes Lucide à chaque mise à jour du DOM
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+
+      // Écoute des touches Entrée, Échap ou Espace pour lever le rideau
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key === "Enter" || e.key === "Escape" || e.key === " ") {
+            setSplashDismissed(true);
+          }
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+      }, []);
+
+      // Effet Parallaxe fluide au curseur dans la porte architecturale Hero
+      const handleHeroMouseMove = (e) => {
+        const { clientX, clientY, innerWidth, innerHeight } = window;
+        const offsetX = (clientX / innerWidth - 0.5) * -22;
+        const offsetY = (clientY / innerHeight - 0.5) * -22;
+        setHeroParallax({ x: offsetX, y: offsetY });
+      };
+
+      // Moteur Physique Universel : Attraction Magnétique sur TOUS les Boutons & CTAs du site
+      useEffect(() => {
+        const magneticElements = document.querySelectorAll(
+          "button, a.rounded-full, .magnetic-target, [role='button']"
+        );
+
+        const cleanups = [];
+
+        magneticElements.forEach((el) => {
+          // Exclure les pastilles de points de navigation fixes et conteneurs trop larges
+          if (el.classList.contains("no-magnetic") || el.offsetWidth > 450) return;
+
+          el.classList.add("magnetic-item");
+
+          const handleMouseMove = (e) => {
+            const rect = el.getBoundingClientRect();
+            const relX = e.clientX - (rect.left + rect.width / 2);
+            const relY = e.clientY - (rect.top + rect.height / 2);
+            // Facteur d'attraction doux de 0.22
+            el.style.transform = `translate3d(${relX * 0.24}px, ${relY * 0.24}px, 0px)`;
+          };
+
+          const handleMouseLeave = () => {
+            el.style.transform = "translate3d(0px, 0px, 0px)";
+          };
+
+          el.addEventListener("mousemove", handleMouseMove);
+          el.addEventListener("mouseleave", handleMouseLeave);
+
+          cleanups.push(() => {
+            el.removeEventListener("mousemove", handleMouseMove);
+            el.removeEventListener("mouseleave", handleMouseLeave);
+          });
+        });
+
+        return () => {
+          cleanups.forEach((c) => c());
+        };
+      }, [splashDismissed, activeCategory, selectedServices, isMapFlipped, quoteModalOpen]);
+
+      // Observateur d'Intersection bidirectionnel pour ENTRÉE ET SORTIE avec Framer Motion feel
+      useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const id = entry.target.id;
+            const isVisible = entry.isIntersecting;
+            
+            setVisibleSections(prev => ({
+              ...prev,
+              [id]: isVisible
+            }));
+
+            if (isVisible) {
+              const idx = SECTIONS_NAV.findIndex(s => s.id === id);
+              if (idx !== -1) setCurrentSectionIndex(idx);
+            }
+          });
+        }, { 
+          threshold: 0.2 // Déclenchement fluide à l'entrée et à la sortie
+        });
+
+        SECTIONS_NAV.forEach(s => {
+          const el = document.getElementById(s.id);
+          if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+      }, [splashDismissed]);
+
+      // Navigation vers une section snap au clic sur les points
+      const scrollToSection = (id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // Calcul dynamique du devis en temps réel
+      const quoteTotal = useMemo(() => {
+        return selectedServices.reduce((sum, s) => sum + s.price, 0);
+      }, [selectedServices]);
+
+      const quoteDuration = useMemo(() => {
+        const totalMinutes = selectedServices.reduce((sum, s) => {
+          const m = parseInt(s.time) || 20;
+          return sum + m;
+        }, 0);
+        if (totalMinutes === 0) return "0 min";
+        const hours = Math.floor(totalMinutes / 60);
+        const mins = totalMinutes % 60;
+        return hours > 0 ? `${hours}h${mins > 0 ? mins : ''}` : `${mins} min`;
+      }, [selectedServices]);
+
+      // Gestion de la sélection d'un service (actualise le devis en direct)
+      const toggleService = (service) => {
+        if (selectedServices.some(s => s.id === service.id)) {
+          setSelectedServices(selectedServices.filter(s => s.id !== service.id));
+        } else {
+          setSelectedServices([...selectedServices, service]);
+        }
+      };
+
+      // Téléchargement du devis au format PDF haute définition A4 (génération propre depuis string HTML autonome)
+      const handleDownloadPDF = () => {
+        if (!window.html2pdf) {
+          window.print();
+          return;
+        }
+
+        const prevScrollX = window.scrollX;
+        const prevScrollY = window.scrollY;
+        window.scrollTo(0, 0);
+
+        const dateStr = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+        const quoteNum = 'VN-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+
+        let servicesRows = selectedServices.length === 0 ? `
+          <tr>
+            <td colspan="3" style="padding: 24px 12px; text-align: center; color: #64748B; font-style: italic; font-size: 12px;">
+              Aucune prestation pré-sélectionnée — Devis indicatif global Victor Nails Paris.
+            </td>
+          </tr>
+        ` : selectedServices.map((s) => `
+          <tr style="border-bottom: 1px solid #EBE7DF;">
+            <td style="padding: ${selectedServices.length > 4 ? '10px' : '14px'} 12px; vertical-align: top;">
+              <div style="font-weight: 600; color: #141E2E; font-size: 13px;">${s.name}</div>
+              <div style="font-size: 11px; color: #64748B; margin-top: 2px;">${s.desc}</div>
+            </td>
+            <td style="padding: ${selectedServices.length > 4 ? '10px' : '14px'} 12px; vertical-align: top; text-align: center; font-family: monospace; font-size: 12px; color: #475569;">
+              ${s.time}
+            </td>
+            <td style="padding: ${selectedServices.length > 4 ? '10px' : '14px'} 12px; vertical-align: top; text-align: right; font-family: monospace; font-size: 13px; font-weight: 700; color: #141E2E;">
+              ${s.price},00 €
+            </td>
+          </tr>
+        `).join('');
+
+        const html = `
+          <div style="width: 720px; min-height: 1010px; box-sizing: border-box; background: #FAF9F6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #141E2E; padding: 32px 36px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 4px;">
+            <div>
+              <!-- EN-TÊTE DU SALON -->
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 2px solid #6AB3D8;">
+                <div>
+                  <div style="font-family: Georgia, serif; font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: #141E2E; margin: 0 0 4px 0;">VICTOR NAILS</div>
+                  <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #3282B8;">Salon de Manucure & Beauté des Mains</div>
+                  <div style="margin-top: 8px; display: inline-block; background: #E9F4F9; color: #1B4965; border: 1px solid #CAE4F1; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 9999px;">
+                    Devis N° ${quoteNum} · Valable 30 jours
+                  </div>
+                </div>
+                <div style="text-align: right; font-size: 11px; line-height: 1.5; color: #475569;">
+                  <div style="font-weight: 700; color: #141E2E; font-size: 12px;">${SALON_DATA.address}</div>
+                  <div>${SALON_DATA.metro}</div>
+                  <div>Tél : ${SALON_DATA.phone}</div>
+                  <div style="margin-top: 4px; font-weight: 600; color: #141E2E;">Date d'émission : ${dateStr}</div>
+                </div>
+              </div>
+
+              <!-- DÉTAIL DES SOINS -->
+              <div style="margin-top: 20px; margin-bottom: 16px;">
+                <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #141E2E; margin-bottom: 4px;">
+                  Détail de votre Devis Personnalisé
+                </div>
+                <div style="font-size: 11px; color: #64748B;">
+                  Estimation transparente de vos prestations sélectionnées. Les tarifs incluent la préparation complète et l'application des soins professionnels.
+                </div>
+              </div>
+
+              <!-- TABLEAU DES PRESTATIONS -->
+              <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                  <tr style="background: #E8F1F5; color: #141E2E; border-bottom: 1px solid #CAE4F1;">
+                    <th style="padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Prestation & Protocole</th>
+                    <th style="padding: 9px 12px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; width: 110px;">Durée</th>
+                    <th style="padding: 9px 12px; text-align: right; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; width: 110px;">Tarif TTC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${servicesRows}
+                </tbody>
+              </table>
+
+              <!-- SYNTHÈSE TOTAUX -->
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; color: #475569;">
+                  <span>Durée totale estimée en cabine :</span>
+                  <span style="font-family: monospace; font-weight: 700; color: #141E2E; font-size: 13px;">~${quoteDuration}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #64748B; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #F1F5F9;">
+                  <span>TVA :</span>
+                  <span>TVA non applicable, art. 293 B du CGI</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <div>
+                    <div style="font-size: 13px; font-weight: 700; color: #141E2E; text-transform: uppercase; letter-spacing: 0.05em;">Montant Total Estimé (TTC) :</div>
+                    <div style="font-size: 10px; color: #64748B; margin-top: 2px;">Sans engagement · Paiement sur place au salon</div>
+                  </div>
+                  <div style="font-family: monospace; font-size: 24px; font-weight: 800; color: #1B4965;">
+                    ${quoteTotal},00 €
+                  </div>
+                </div>
+              </div>
+
+              <!-- MODALITÉS & ENGAGEMENT DU SALON -->
+              <div style="background: #F1F5F9; border-left: 3px solid #6AB3D8; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 11px; line-height: 1.5; color: #334155;">
+                <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Comment valider votre rendez-vous ?</div>
+                <div>1. Cliquez sur le bouton WhatsApp sur le site pour transmettre ce récapitulatif directement à notre équipe.</div>
+                <div>2. Ou réservez en 1 clic sur notre page officielle Treatwell : <strong style="color: #141E2E;">Victor Nails Paris 13</strong>.</div>
+                <div>3. Présentez ce devis ou votre confirmation Treatwell à votre arrivée au 95 Rue de Patay.</div>
+              </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div style="border-top: 1px solid #E2E8F0; padding-top: 14px; text-align: center; font-size: 10px; line-height: 1.5; color: #64748B; margin-top: 18px;">
+              <div style="font-weight: 600; color: #141E2E;">Victor Nails Paris 13 · 95 Rue de Patay, 75013 Paris · Tél : ${SALON_DATA.phone}</div>
+              <div>Horaires : ${SALON_DATA.hours}</div>
+              <div style="margin-top: 3px; font-style: italic; color: #94A3B8;">Document officiel généré à titre de devis estimatif via le site www.victornails-paris.fr.</div>
+            </div>
+          </div>
+        `;
+
+        const opt = {
+          margin: [8, 8, 8, 8],
+          filename: `Devis_Victor_Nails_${new Date().toISOString().slice(0, 10)}.pdf`,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        window.html2pdf()
+          .set(opt)
+          .from(html)
+          .save()
+          .then(() => {
+            window.scrollTo(prevScrollX, prevScrollY);
+          })
+          .catch(() => {
+            window.scrollTo(prevScrollX, prevScrollY);
+          });
+      };
+
+      // Générateur de lien WhatsApp sans commission avec message formaté
+      const generateWhatsAppLink = () => {
+        if (selectedServices.length === 0) {
+          return `https://wa.me/${SALON_DATA.whatsapp}?text=${encodeURIComponent("Bonjour Victor Nails ! Je souhaiterais réserver un créneau pour une prestation au salon.")}`;
+        }
+        let msg = `Bonjour Victor Nails !\nJe souhaite réserver un créneau pour mon devis direct :\n\n`;
+        selectedServices.forEach(s => {
+          msg += `• ${s.name} (${s.price} €)\n`;
+        });
+        msg += `\nTotal estimé : ${quoteTotal} €\nDurée estimée : ~${quoteDuration}\n\nQuelles seraient vos prochaines disponibilités au salon (95 Rue de Patay) ? Merci !`;
+        return `https://wa.me/${SALON_DATA.whatsapp}?text=${encodeURIComponent(msg)}`;
+      };
+
+      // Filtrage des prestations
+      const filteredServices = useMemo(() => {
+        if (activeCategory === "all") return SERVICES_CATALOG;
+        return SERVICES_CATALOG.filter(s => s.category === activeCategory);
+      }, [activeCategory]);
+
+      // Lettres du monument pour stagger motion fluide
+      const titleWord1 = "VICTOR".split("");
+      const titleWord2 = "NAILS".split("");
+
+      return (
+        <div className="bg-linen text-ink flex flex-col relative selection:bg-studio-powder">
+          
+          {/* ============================================================== */}
+          {/* SPLASH SCREEN SCÉNOGRAPHIQUE MINIMALISTE ÉPURÉ AVEC MOTION     */}
+          {/* ============================================================== */}
+          <aside 
+            aria-label="Écran d'accueil Victor Nails"
+            onClick={handleEnterInstitut}
+            className={`fixed inset-0 z-50 bg-[#0C121D] text-[#F5F3EE] flex flex-col items-center justify-center p-6 sm:p-12 select-none cursor-pointer overflow-hidden transition-all duration-1000 ease-in-out ${
+              splashDismissed 
+                ? "-translate-y-full pointer-events-none opacity-0" 
+                : portalStage === 'light_flood' || portalStage === 'light_fading' || portalStage === 'focus_rack'
+                  ? "portal-screen-fadeout pointer-events-none"
+                  : "translate-y-0 opacity-100"
+            }`}
+          >
+            {/* Lueur d'ambiance minérale bleue studio douce en fond */}
+            <div className="absolute w-[600px] h-[600px] bg-studio/20 rounded-full blur-[140px] pointer-events-none animate-float-orb-1"></div>
+            <div className="absolute w-[450px] h-[450px] bg-nude/10 rounded-full blur-[120px] pointer-events-none animate-float-orb-2"></div>
+
+            {/* Cœur Scénographique Épuré & Vibrant */}
+            <div className={`relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto my-auto w-full px-4 transition-all duration-400 ${
+              portalStage !== 'idle' ? "portal-content-fadeout" : "opacity-100"
+            }`}>
+              
+              {/* Conteneur Titre avec mention en haut à gauche */}
+              <div className="relative inline-block w-full max-w-fit mx-auto mb-10 sm:mb-16">
+                
+                {/* Acte 1 : Texte en haut à gauche de Victor Nails avec révélation aérienne */}
+                <div className="text-left mb-3 sm:mb-4 pl-1 sm:pl-2 overflow-hidden">
+                  <span className="font-mono text-sm sm:text-base md:text-lg tracking-[0.24em] sm:tracking-[0.28em] uppercase text-studio-powder font-semibold inline-block animate-splash-welcome">
+                    Bienvenue chez
+                  </span>
+                </div>
+                
+                {/* Acte 2 : Grand Titre Sculptural (+20% font-size : 6xl/8xl/9xl/10xl) */}
+                <h2 className="font-serif text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-normal tracking-[0.12em] sm:tracking-[0.16em] text-[#F5F3EE] leading-[1.02] overflow-hidden flex flex-wrap justify-center sm:justify-start items-center gap-x-6 sm:gap-x-12">
+                  
+                  {/* Mot 1 : VICTOR */}
+                  <span className="inline-flex overflow-hidden">
+                    {titleWord1.map((char, i) => (
+                      <span 
+                        key={i} 
+                        className="letter-motion"
+                        style={{ animationDelay: `${0.25 + i * 0.06}s` }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </span>
+                  
+                  {/* Mot 2 : NAILS */}
+                  <span className="inline-flex overflow-hidden">
+                    {titleWord2.map((char, i) => (
+                      <span 
+                        key={i} 
+                        className="letter-motion"
+                        style={{ animationDelay: `${0.65 + i * 0.06}s` }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </span>
+                  
+                </h2>
+
+                {/* Acte 3 : Sous-titre Salon de manucure avec révélation sérif soyeuse */}
+                <div className="text-left sm:text-right mt-3 sm:mt-5 pr-1 sm:pr-2 overflow-hidden">
+                  <p className="font-serif italic text-xl sm:text-3xl md:text-4xl text-studio-powder tracking-[0.08em] font-normal inline-block animate-splash-subtitle">
+                    Salon de manucure
+                  </p>
+                </div>
+              </div>
+              
+              {/* Acte 4 : Entrée Scénarisée du Bouton Pill Magnétique (+20% font-size & descendu de 60px) */}
+              <div className="mt-12 sm:mt-20 animate-splash-cta-entry">
+                <MagneticButton 
+                  onClick={handleEnterInstitut}
+                  className="group relative inline-flex items-center gap-3.5 px-10 py-4.5 sm:px-14 sm:py-5 rounded-full bg-studio text-[#F5F3EE] font-mono text-sm sm:text-base tracking-[0.24em] uppercase font-semibold shadow-luxury animate-pill-breathe hover:bg-studio-dark active:scale-[0.97] transition-all"
+                >
+                  <span>ENTRER DANS L'INSTITUT</span>
+                  <i data-lucide="arrow-right" className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-800 ease-in-out animate-arrow-nudge"></i>
+                </MagneticButton>
+              </div>
+              
+            </div>
+          </aside>
+
+          {/* ============================================================== */}
+          {/* SCÉNOGRAPHIE OPTIQUE : TRACÉ D'ARCHE, BLANC LUMINEUX & MISE AU POINT */}
+          {/* ============================================================== */}
+          {portalStage !== 'idle' && portalStage !== 'dismissed' && (() => {
+            const archW = Math.round(archeTarget.width || 480);
+            const archH = Math.round(archeTarget.height || 620);
+            const archR = Math.round(archW / 2);
+            // Chemin de l'arche en plein cintre : bas-gauche -> montée -> arc plein cintre -> descente bas-droite -> base
+            const archPath = `M 0,${archH} L 0,${archR} A ${archR} ${archR} 0 0 1 ${archW} ${archR} L ${archW},${archH} Z`;
+
+            return (
+              <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden select-none">
+                
+                {/* 1. Voile de blanc lumineux d'accueil : inonde l'écran avec bloom feutré à l'ouverture, puis s'estompe en douceur */}
+                <div 
+                  className={`fixed inset-0 z-40 bg-[#FAF8F5] pointer-events-none ${
+                    portalStage === 'light_flood' 
+                      ? 'opacity-95' 
+                      : 'opacity-0'
+                  }`}
+                  style={{
+                    boxShadow: portalStage === 'light_flood' ? 'inset 0 0 160px rgba(255,255,255,0.95)' : 'none',
+                    transition: 'opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1)'
+                  }}
+                ></div>
+
+                {/* 2. Cadre architectural superposé à l'arche du Hero (Échelle 1:1 naturelle et stable) */}
+                <div 
+                  style={{
+                    position: 'fixed',
+                    left: archeTarget.left,
+                    top: archeTarget.top,
+                    width: archeTarget.width,
+                    height: archeTarget.height,
+                    transform: 'scale(1.0)',
+                    zIndex: 45
+                  }}
+                >
+                  
+                  {/* Liseré lumineux traçant le contour de l'arche à l'encre d'or chaude (Acte 1 : 0 -> 1500ms) */}
+                  <svg 
+                    width={archW} 
+                    height={archH} 
+                    viewBox={`0 0 ${archW} ${archH}`} 
+                    className={`absolute inset-0 pointer-events-none z-30 transition-opacity duration-1000 ${
+                      portalStage === 'light_flood' || portalStage === 'light_fading' || portalStage === 'focus_rack' 
+                        ? 'opacity-0' 
+                        : 'opacity-100'
+                    }`}
+                  >
+                    <path 
+                      d={archPath} 
+                      fill="none" 
+                      stroke="#FAF8F5" 
+                      strokeWidth="2.5" 
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{
+                        strokeDasharray: 2600,
+                        filter: 'drop-shadow(0 0 16px rgba(245,243,238,0.95))',
+                        animation: 'drawArcheStroke 1.48s cubic-bezier(0.22, 1, 0.36, 1) forwards'
+                      }}
+                    />
+                  </svg>
+
+                  {/* Forme de l'arche avec photo effectuant son rack focus cinématographique 35mm (Acte 3 & 4) */}
+                  <div 
+                    className="hero-door-mask w-full h-full bg-linen-200 shadow-luxury border-2 border-b-0 border-linen-50/90 relative overflow-hidden"
+                    style={{
+                      opacity: portalStage === 'light_flood' || portalStage === 'light_fading' || portalStage === 'focus_rack' ? 1 : 0,
+                      transition: 'opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1)'
+                    }}
+                  >
+                    <img 
+                      src="assets/hero_hands.jpg" 
+                      alt="Manucure d'exception Victor Nails Paris"
+                      style={{
+                        filter: portalStage === 'focus_rack' 
+                          ? 'blur(0px) saturate(0.95) contrast(1.03)' 
+                          : 'blur(22px) saturate(0.95) contrast(1.03)',
+                        transform: 'scale(1.08)',
+                        transition: 'filter 1.6s cubic-bezier(0.22, 1, 0.36, 1)'
+                      }}
+                      className="w-full h-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/15 via-transparent to-transparent pointer-events-none"></div>
+                  </div>
+
+                </div>
+
+              </div>
+            );
+          })()}
+
+          {/* ============================================================== */}
+          {/* NAVIGATION FLOTTANTE PAR POINTS DU SNAP SCROLL (DESKTOP)       */}
+          {/* ============================================================== */}
+          <div className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-3 pointer-events-auto">
+            {SECTIONS_NAV.map((s, idx) => {
+              const isActive = currentSectionIndex === idx;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => scrollToSection(s.id)}
+                  className="group flex items-center gap-2.5 py-1 focus:outline-none"
+                  aria-label={`Aller à ${s.label}`}
+                >
+                  <span className={`hidden 2xl:inline-block font-mono text-[10px] tracking-widest uppercase transition-all duration-800 ease-in-out ${
+                    isActive ? "opacity-100 text-studio font-bold -translate-x-1" : "opacity-0 group-hover:opacity-100 text-ink-subtle translate-x-2"
+                  }`}>
+                    {s.label}
+                  </span>
+                  <span className={`rounded-full transition-all duration-800 ease-in-out ${
+                    isActive 
+                      ? "w-2.5 h-6 bg-studio shadow-sm" 
+                      : "w-2 h-2 bg-studio-powder/70 group-hover:bg-studio group-hover:scale-125"
+                  }`} />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ============================================================== */}
+          {/* SECTION 1 : HERO + NAVBAR + RÉASSURANCE (100VH SNAP STRICT)    */}
+          {/* ============================================================== */}
+          <section id="section-hero" onMouseMove={handleHeroMouseMove} className="snap-section flex flex-col justify-between relative overflow-hidden bg-linen border-b border-studio-powder/20">
+            
+            {/* BARRE DE NAVIGATION PRINCIPALE ANIMÉE (ENTRÉE ORGANIQUE SYNCHRONISÉE AVEC L'ÉCLOSION DU SITE) */}
+            <nav className={`z-40 bg-linen/95 backdrop-blur-md py-4 sm:py-5 lg:py-6 px-4 sm:px-8 shrink-0 transition-all duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              (portalStage === 'light_fading' || portalStage === 'focus_rack' || portalStage === 'dismissed' || splashDismissed)
+                ? "opacity-100 translate-y-0" 
+                : "opacity-0 -translate-y-4 pointer-events-none"
+            }`}>
+              <div className="max-w-7xl mx-auto flex items-center justify-between">
+                
+                {/* Logo de marque détachable : Berceau fantôme fixe + Logo volant FLIP vers le Hero */}
+                <div className="relative">
+                  {/* Berceau fantôme invisible pour maintenir l'encombrement strict sans reflow */}
+                  <div className="flex flex-col invisible select-none pointer-events-none" aria-hidden="true">
+                    <span className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-wide">
+                      VICTOR NAILS
+                    </span>
+                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.25em] mt-0.5">
+                      Institut d'Onglerie & Soins · Paris 13
+                    </span>
+                  </div>
+
+                  {/* 2ème Partie : Devise entrant par la gauche pour prendre la place de Victor Nails dans la navbar */}
+                  <div 
+                    className={`absolute top-0 left-0 flex flex-col transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      heroStoryState === 'story'
+                        ? "translate-x-0 opacity-100 delay-200 pointer-events-auto"
+                        : "-translate-x-[100vw] opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <span className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-wide text-ink whitespace-nowrap">
+                      L'art de l'ongle
+                    </span>
+                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.25em] mt-0.5 text-ink-subtle whitespace-nowrap">
+                      L'élégance du soin sur-mesure
+                    </span>
+                  </div>
+
+                  {/* Logo réel en navbar qui glisse vers le bas et s'estompe quand story est active */}
+                  <a 
+                    id="hero-floating-logo"
+                    href="#" 
+                    onClick={(e) => { e.preventDefault(); if (heroStoryState === 'story') setHeroStoryState('idle'); }}
+                    className={`absolute top-0 left-0 flex flex-col group origin-top-left transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      heroStoryState === 'story'
+                        ? "translate-y-8 opacity-0 scale-95 pointer-events-none"
+                        : "translate-y-0 opacity-100 scale-100 pointer-events-auto hover:scale-[1.02]"
+                    }`}
+                  >
+                    <span className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-wide text-ink group-hover:text-studio transition-colors whitespace-nowrap">
+                      VICTOR NAILS
+                    </span>
+                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.25em] mt-0.5 text-ink-subtle opacity-100 group-hover:text-studio/80 transition-colors whitespace-nowrap">
+                      Institut d'Onglerie & Soins · Paris 13
+                    </span>
+                  </a>
+                </div>
+
+                {/* Liens Desktop raffinés avec soulignement cinétique au survol */}
+                <div className="hidden lg:flex items-center gap-7 font-sans text-sm font-medium">
+                  <button 
+                    onClick={() => scrollToSection("section-hero")} 
+                    className="nav-link-btn"
+                  >
+                    Accueil
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("prestations")} 
+                    className="nav-link-btn flex items-center gap-1.5"
+                  >
+                    <span>Prestations</span>
+                    {selectedServices.length > 0 && (
+                      <span className="px-2 py-0.5 rounded-full bg-studio text-linen-50 text-[10px] font-mono font-bold animate-badge-pop">
+                        {selectedServices.length}
+                      </span>
+                    )}
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("galerie")} 
+                    className="nav-link-btn"
+                  >
+                    Inspirations
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("avis")} 
+                    className="nav-link-btn"
+                  >
+                    Avis & Équipe
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("contact")} 
+                    className="nav-link-btn"
+                  >
+                    Accès
+                  </button>
+                </div>
+
+                {/* Bouton de conversion Header Magnétique */}
+                <div className="flex items-center gap-3">
+                  <a 
+                    href={generateWhatsAppLink()}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hidden sm:inline-flex items-center gap-2 px-6 py-3 rounded-full bg-studio text-linen-50 font-sans text-xs uppercase tracking-wider font-semibold shadow-luxury hover:bg-studio-dark active:scale-95 transition-all duration-800 ease-in-out"
+                  >
+                    <i data-lucide="message-circle" className="w-4 h-4"></i>
+                    <span>Réserver / Devis</span>
+                  </a>
+
+                  {/* Bouton Menu Mobile */}
+                  <button 
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="lg:hidden p-2.5 rounded-xl bg-linen-200 text-ink hover:bg-studio-powder/50 active:scale-95 transition-all duration-800 ease-in-out"
+                    aria-label="Menu"
+                  >
+                    <i data-lucide={mobileMenuOpen ? "x" : "menu"} className="w-5 h-5"></i>
+                  </button>
+                </div>
+              </div>
+
+              {/* Menu Déroulant Mobile */}
+              {mobileMenuOpen && (
+                <div className="lg:hidden mt-3 pt-3 border-t border-studio-powder/30 flex flex-col gap-3 px-2 font-sans text-sm text-ink font-medium">
+                  <button onClick={() => { scrollToSection("section-hero"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Accueil</button>
+                  <button onClick={() => { scrollToSection("prestations"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio flex items-center justify-between">
+                    <span>Prestations</span>
+                    {selectedServices.length > 0 && (
+                      <span className="px-2 py-0.5 rounded-full bg-studio text-linen-50 font-mono text-xs font-bold">
+                        {selectedServices.length} ({quoteTotal} €)
+                      </span>
+                    )}
+                  </button>
+                  <button onClick={() => { scrollToSection("galerie"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Inspirations</button>
+                  <button onClick={() => { scrollToSection("avis"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Avis & Équipe</button>
+                  <button onClick={() => { scrollToSection("contact"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Accès</button>
+                  <div className="pt-2 flex flex-col gap-2">
+                    <a 
+                      href={generateWhatsAppLink()} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center text-center py-3 rounded-full bg-studio text-linen-50 text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-studio-dark transition-all"
+                    >
+                      <span className="w-full text-center">Contact Direct WhatsApp</span>
+                    </a>
+                    <a 
+                      href={SALON_DATA.treatwellUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center text-center py-3 rounded-full border border-studio/40 text-studio text-xs font-bold uppercase tracking-wider hover:bg-studio/10 transition-all"
+                    >
+                      <span className="w-full text-center">Réserver sur Treatwell</span>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </nav>
+
+            {/* HERO CONTENT AVEC ANIMATION D'ENTRÉE ET DE SORTIE */}
+            <div className="flex-1 flex items-center px-4 sm:px-8 py-6 lg:py-0 relative overflow-hidden">
+              <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-studio-powder/35 rounded-full blur-3xl pointer-events-none -z-10 animate-soft-glow"></div>
+
+              <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                
+                {/* Colonne Gauche : Copie éditoriale, typographie haute joaillerie & CTAs */}
+                <div className={`lg:col-span-7 flex flex-col items-start transition-all duration-1200 ease-in-out ${
+                  visibleSections["section-hero"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 -translate-y-8 blur-[4px]"
+                }`}>
+                  
+                  {/* Zone Titre Interchangeable (H1 Devise <-> Grand Titre Victor Nails) */}
+                  <div className={`relative w-full transition-all duration-800 ease-in-out ${
+                    heroStoryState === 'story' ? 'mb-[70px]' : 'mb-4 lg:mb-5'
+                  }`}>
+                    {/* H1 : L'art de l'ongle & l'élégance du soin sur-mesure (glisse vers la gauche sur X pour disparaître de l'écran) */}
+                    <div className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      heroStoryState === 'story' 
+                        ? "-translate-x-[120vw] opacity-0 pointer-events-none absolute inset-x-0 top-0 filter blur-[8px]" 
+                        : "translate-x-0 opacity-100 pointer-events-auto relative filter-none"
+                    }`}>
+                      <h1 className="font-serif text-3xl sm:text-5xl lg:text-[3.4rem] xl:text-6xl text-ink font-normal leading-[1.12] tracking-tight">
+                        <span className="stagger-line-wrap">
+                          <span className={`stagger-line-inner ${visibleSections["section-hero"] ? "stagger-line-visible" : "stagger-line-hidden"}`}>
+                            L'art de l'ongle & l'élégance du soin
+                          </span>
+                        </span>
+                        <span className="stagger-line-wrap">
+                          <span className={`stagger-line-inner italic font-serif font-light text-studio ${visibleSections["section-hero"] ? "stagger-line-visible" : "stagger-line-hidden"}`} style={{ transitionDelay: "0.15s" }}>
+                            sur-mesure.
+                          </span>
+                        </span>
+                      </h1>
+                    </div>
+
+                    {/* Victor Nails prenant la place du H1 : Adopte la police et taille du H1 + sous-titre soyeux */}
+                    <div className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      heroStoryState === 'story'
+                        ? "translate-y-0 opacity-100 pointer-events-auto relative filter-none"
+                        : "-translate-y-10 opacity-0 pointer-events-none absolute inset-x-0 top-0 filter blur-[6px]"
+                    }`}>
+                      <div className="font-serif text-3xl sm:text-5xl lg:text-[3.4rem] xl:text-6xl text-ink font-normal leading-[1.12] tracking-tight">
+                        VICTOR NAILS
+                      </div>
+                      <div className="font-serif italic font-light text-studio text-xl sm:text-2xl lg:text-3xl mt-2 tracking-normal">
+                        Institut d'Onglerie & Soins · Paris 13
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Paragraphe interchangeable : Fondu croisé in-situ sans boîte ni modale (Texte pur) */}
+                  <div 
+                    id="hero-story-container"
+                    onMouseEnter={handleStoryMouseEnter} 
+                    onMouseLeave={handleStoryMouseLeave}
+                    className={`relative w-full max-w-xl transition-all duration-800 ease-in-out cursor-pointer ${
+                      heroStoryState === 'story' ? 'mb-[80px]' : 'mb-6 lg:mb-7'
+                    }`}
+                  >
+                    {/* Texte A : Manucure russe originale (Fade-out quand story est active) */}
+                    <p 
+                      className={`font-sans text-sm sm:text-base lg:text-lg text-ink-muted font-normal leading-relaxed transition-all duration-700 ease-in-out ${
+                        heroStoryState === 'story' 
+                          ? "opacity-0 pointer-events-none filter blur-[4px] absolute inset-x-0 top-0 -translate-y-1.5" 
+                          : "opacity-100 filter-none relative translate-y-0"
+                      }`}
+                    >
+                      Manucure russe d'une précision chirurgicale, renforcement gel haute tenue et beauté des pieds dans un écrin moderne, apaisant et irréprochable.
+                    </p>
+
+                    {/* Texte B : Récit pur de Hoa & Notre-Dame-de-La-Gare (Fade-in quand story est active, zéro modale, zéro boîte) */}
+                    <p 
+                      id="hero-story-text"
+                      className={`font-sans text-sm sm:text-base text-ink font-normal leading-relaxed transition-all duration-700 ease-in-out ${
+                        heroStoryState === 'story' 
+                          ? "opacity-100 filter-none relative translate-y-0" 
+                          : "opacity-0 pointer-events-none filter blur-[4px] absolute inset-x-0 top-0 translate-y-1.5"
+                      }`}
+                    >
+                      Idéalement situé dans le 13ᵉ arrondissement de Paris, tout près de l'église Notre-Dame-de-La-Gare, Victor Nails est un bar à ongles à l'ambiance conviviale et décontractée. Hoa, professionnelle ongulaire et passionnée, vous accueille avec le sourire et vous propose une large gamme de prestations pour la mise en beauté de vos ongles. Des poses de vernis, des beautés des mains et des pieds, des rallongements ou du nail art, rien n'est oublié pour prendre soin de vous !
+                    </p>
+                  </div>
+
+                  {/* Double CTA de Conversion Directe */}
+                  <div id="hero-cta-buttons" className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-6 lg:mb-8">
+                    <button 
+                      onClick={() => scrollToSection("prestations")}
+                      className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-studio text-linen-50 font-sans text-sm font-semibold tracking-wide shadow-luxury hover:bg-studio-dark hover:shadow-luxury-hover active:scale-95 transition-all"
+                    >
+                      <span>Calculer mon devis en direct</span>
+                    </button>
+                    <a 
+                      href={SALON_DATA.treatwellUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-linen-50 border border-studio-powder/80 text-ink font-sans text-sm font-medium hover:border-studio hover:bg-linen-200 transition-all"
+                    >
+                      <span>Réserver sur Treatwell</span>
+                      <i data-lucide="external-link" className="w-4 h-4 text-ink-subtle"></i>
+                    </a>
+                  </div>
+
+                  {/* Fine ligne de séparation active (Jauge d'intention 1.5s discrète, sans indication textuelle) */}
+                  <div className="w-full h-[1.5px] bg-studio-powder/40 rounded-full mb-4 lg:mb-5 overflow-hidden relative">
+                    <div 
+                      className="h-full bg-studio rounded-full transition-all"
+                      style={{
+                        width: heroStoryState === 'arming' || heroStoryState === 'story' ? '100%' : '0%',
+                        transitionDuration: heroStoryState === 'arming' ? '1500ms' : heroStoryState === 'story' ? '300ms' : '250ms',
+                        transitionTimingFunction: 'linear'
+                      }}
+                    />
+                  </div>
+
+                  {/* Ligne des 4 piliers de preuve sociale */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full font-sans">
+                    
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-1 text-amber-500 mb-0.5">
+                        <span className="font-mono font-bold text-base lg:text-lg text-ink tabular-nums">4.9 ★</span>
+                      </div>
+                      <span className="font-mono text-[11px] text-ink-subtle">715 avis Treatwell</span>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span className="font-mono font-bold text-base lg:text-lg text-ink tabular-nums">Ligne 14</span>
+                      <span className="font-mono text-[11px] text-ink-subtle">Olympiades & BNF</span>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span className="font-mono font-bold text-base lg:text-lg text-ink tabular-nums">100%</span>
+                      <span className="font-mono text-[11px] text-ink-subtle">Hygiène & Stérilité</span>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span className="font-mono font-bold text-base lg:text-lg text-ink tabular-nums">3 Expertes</span>
+                      <span className="font-mono text-[11px] text-ink-subtle">Hoa', Lyly & Sary</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* Colonne Droite : Porte Architecturale rehaussée (+200px) */}
+                <div className={`lg:col-span-5 relative flex justify-center lg:justify-end transition-all duration-1200 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  visibleSections["section-hero"] 
+                    ? "opacity-100 scale-100 filter-none" 
+                    : "opacity-0 scale-95 blur-[6px]"
+                }`}>
+                  
+                  <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl perspective-card">
+                    <div id="hero-arche-door" className="hero-door-mask w-full h-[460px] sm:h-[520px] lg:h-[580px] xl:h-[620px] max-h-[calc(100vh-190px)] bg-linen-200 shadow-luxury border-2 border-b-0 border-linen-50/90 relative">
+                      <img 
+                        src="assets/hero_hands.jpg" 
+                        alt="Manucure d'exception Victor Nails Paris" 
+                        style={{ transform: `scale(1.08) translate3d(${heroParallax.x}px, ${heroParallax.y}px, 0px)` }}
+                        className="w-full h-full object-cover object-center filter saturate-[0.95] contrast-[1.03] hero-parallax-img"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=1080&q=80";
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/15 via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            {/* BANDEAU DE RÉASSURANCE ANCRÉ EN BAS DU VIEWPORT 1 */}
+            <div className="bg-linen-200/70 border-t border-studio-powder/30 py-3.5 px-4 shrink-0">
+              <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center font-sans text-xs text-ink-muted">
+                
+                <div className="flex items-center justify-center gap-2">
+                  <i data-lucide="shield-check" className="w-4 h-4 text-studio"></i>
+                  <span className="font-medium text-[11px] sm:text-xs">Consommables à usage unique</span>
+                </div>
+
+                <div className="flex items-center justify-center gap-2">
+                  <i data-lucide="droplet" className="w-4 h-4 text-studio"></i>
+                  <span className="font-medium text-[11px] sm:text-xs">Vernis & Gels respectueux</span>
+                </div>
+
+                <div className="flex items-center justify-center gap-2">
+                  <i data-lucide="award" className="w-4 h-4 text-studio"></i>
+                  <span className="font-medium text-[11px] sm:text-xs">Stylistes certifiées & minutieuses</span>
+                </div>
+
+                <div className="flex items-center justify-center gap-2">
+                  <i data-lucide="coffee" className="w-4 h-4 text-studio"></i>
+                  <span className="font-medium text-[11px] sm:text-xs">Thé, café & douceur offerts</span>
+                </div>
+
+              </div>
+            </div>
+
+          </section>
+
+          {/* ============================================================== */}
+          {/* SECTION 2 : PRESTATIONS & DEVIS EN DIRECT (SURVOL DYNAMIQUE ÉLASTIQUE) */}
+          {/* ============================================================== */}
+          <section id="prestations" className="snap-section flex flex-col justify-center py-6 lg:py-8 px-4 sm:px-8 bg-linen relative border-b border-studio-powder/20 overflow-hidden">
+            <div className="max-w-7xl mx-auto w-full my-auto transition-all duration-700 ease-in-out">
+              
+              {/* En-tête de section avec disparition fluide au survol des prestations ou verrouillage */}
+              <div className={`overflow-hidden transition-all duration-700 ease-in-out ${
+                isExpanded 
+                  ? "max-h-0 opacity-0 mb-0 -translate-y-4 pointer-events-none" 
+                  : "max-h-28 opacity-100 mb-6 lg:mb-7 translate-y-0"
+              }`}>
+                <div className={`flex flex-col md:flex-row md:items-end justify-between gap-3 transition-all duration-1200 ease-in-out ${
+                  visibleSections["prestations"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 -translate-y-6 blur-[4px]"
+                }`}>
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-widest text-studio font-semibold block mb-1">
+                      CARTE DES PRESTATIONS & DEVIS EN DIRECT
+                    </span>
+                    <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-ink font-normal tracking-tight">
+                      <span className="stagger-line-wrap">
+                        <span className={`stagger-line-inner ${visibleSections["prestations"] ? "stagger-line-visible" : "stagger-line-hidden"}`}>
+                          Des mains et des pieds impeccables,
+                        </span>
+                      </span>
+                      <span className="stagger-line-wrap">
+                        <span className={`stagger-line-inner italic font-light text-studio ${visibleSections["prestations"] ? "stagger-line-visible" : "stagger-line-hidden"}`} style={{ transitionDelay: "0.12s" }}>
+                          adaptés à votre rythme.
+                        </span>
+                      </span>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+
+              {/* Layout Flex/Grid Élastique : Au survol ou clic verrouillé, la colonne prestations s'étend sur 100% et 2 colonnes */}
+              <div className="relative flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch w-full transition-all duration-700 ease-in-out">
+                
+                {/* Colonne Prestations avec Barre de Filtre AU-DESSUS de la liste */}
+                <div 
+                  onMouseEnter={() => setIsServicesHovered(true)}
+                  onMouseLeave={() => setIsServicesHovered(false)}
+                  className={`flex flex-col gap-3.5 h-full transition-all duration-700 ease-in-out ${
+                    isExpanded 
+                      ? "w-full lg:flex-1 services-expanded-active" 
+                      : "w-full lg:w-1/2"
+                  } ${
+                    visibleSections["prestations"] 
+                      ? "opacity-100 translate-y-0 filter-none" 
+                      : "opacity-0 translate-y-8 blur-[4px]"
+                  }`}
+                >
+                  {/* BARRE DE FILTRE SITUÉE DIRECTEMENT AU-DESSUS DE LA LISTE */}
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2 sm:p-2.5 rounded-2xl bg-linen-200/90 border border-studio-powder/50 font-mono text-xs">
+                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full">
+                      <button 
+                        onClick={() => setActiveCategory("all")}
+                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "all" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
+                      >
+                        Tous ({SERVICES_CATALOG.length})
+                      </button>
+                      <button 
+                        onClick={() => setActiveCategory("manucure")}
+                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "manucure" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
+                      >
+                        Manucure
+                      </button>
+                      <button 
+                        onClick={() => setActiveCategory("gel")}
+                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "gel" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
+                      >
+                        Gel
+                      </button>
+                      <button 
+                        onClick={() => setActiveCategory("pedicure")}
+                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "pedicure" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
+                      >
+                        Pédicure
+                      </button>
+                      <button 
+                        onClick={() => setActiveCategory("soins")}
+                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "soins" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
+                      >
+                        Nail Art
+                      </button>
+                    </div>
+
+                    <div className="flex items-center gap-3 shrink-0">
+                      {selectedServices.length > 0 && (
+                        <button 
+                          onClick={() => setSelectedServices([])}
+                          className="text-studio font-mono text-[11px] underline hover:text-studio-dark font-semibold shrink-0 px-1 cursor-pointer"
+                        >
+                          Réinitialiser ({selectedServices.length})
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Bandeau discret d'indication (sans icône superflue) */}
+                  <div className="px-3.5 py-2 bg-studio-powder/20 border border-studio-powder/40 rounded-xl text-xs font-sans text-ink-muted flex items-center justify-between">
+                    <span className="flex items-center gap-2">
+                      <span>
+                        Cliquez sur une prestation pour ajuster votre devis en temps réel.
+                      </span>
+                    </span>
+                    <span className="font-mono text-[11px] text-studio font-semibold hidden sm:inline">
+                      {filteredServices.length} soins disponibles
+                    </span>
+                  </div>
+
+                  {/* LISTE DES PRESTATIONS : DEVIENT SUR 2 COLONNES AU SURVOL/VERROUILLAGE, SCROLLBAR RETIRÉE */}
+                  <div 
+                    id="services-scroll-list"
+                    className={`services-scroll-container overflow-y-auto overflow-x-hidden pr-1 transition-all duration-700 ease-in-out ${
+                      isExpanded 
+                        ? "services-hide-scrollbar max-h-[560px] lg:max-h-[600px]" 
+                        : "max-h-[440px] lg:max-h-[470px]"
+                    }`}
+                  >
+                    <div className="services-expanded-grid">
+                    {filteredServices.map((service) => {
+                      const isSelected = selectedServices.some(s => s.id === service.id);
+                      return (
+                        <div 
+                          key={service.id}
+                          onClick={() => toggleService(service)}
+                          className={`service-interactive-card p-3.5 sm:p-4 rounded-2xl cursor-pointer border ${
+                            isSelected 
+                              ? "bg-linen-50 border-studio ring-2 ring-studio/20 shadow-luxury !translate-x-1.5" 
+                              : "bg-linen-50/80 border-studio-powder/40 hover:border-studio hover:bg-linen-50 hover:shadow-luxury"
+                          }`}
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex items-start gap-3">
+                              <div>
+                                <div className="flex items-center gap-2 mb-0.5">
+                                  <h3 className="font-sans font-semibold text-ink text-sm">
+                                    {service.name}
+                                  </h3>
+                                  {service.popular && (
+                                    <span className="px-2 py-0.5 rounded-full bg-studio-powder/50 text-studio text-[10px] font-mono font-bold uppercase tracking-wider">
+                                      Populaire
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="font-sans text-xs text-ink-muted leading-relaxed line-clamp-1">
+                                  {service.desc}
+                                </p>
+                                <div className="flex items-center gap-3 mt-1 text-[11px] font-mono text-ink-subtle">
+                                  <span className="flex items-center gap-1">
+                                    <i data-lucide="clock" className="w-3 h-3"></i>
+                                    <span>{service.time}</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex flex-col items-end">
+                              <span className="font-mono font-bold text-base text-ink tabular-nums">
+                                {service.price},00 €
+                              </span>
+                              <span className="text-[10px] font-mono text-ink-subtle">
+                                {isSelected ? "Sélectionné" : "+ Ajouter"}
+                              </span>
+                            </div>
+
+                          </div>
+                        </div>
+                      );
+                    })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Colonne Droite : Carte Devis en Direct (S'efface et se rétracte en douceur lorsque la liste s'étend) */}
+                <div className={`flex flex-col transition-all duration-700 ease-in-out ${
+                  isExpanded 
+                    ? "w-0 lg:w-0 opacity-0 overflow-hidden pointer-events-none scale-95" 
+                    : "w-full lg:w-1/2 opacity-100 scale-100 h-full"
+                } ${
+                  visibleSections["prestations"] 
+                    ? "filter-none" 
+                    : "blur-[4px]"
+                }`}>
+                  
+                  {/* CARTE PANIER DEVIS EN TEMPS RÉEL (Hauteur complète équivalente à la colonne de gauche) */}
+                  <div 
+                    id="devis" 
+                    onClick={() => setQuoteModalOpen(true)}
+                    className="group relative p-7 sm:p-8 rounded-3xl bg-linen-50 border-2 border-studio/40 shadow-luxury hover:shadow-luxury-hover hover:border-studio transition-all duration-800 ease-in-out cursor-pointer flex flex-col justify-between h-full min-h-[582px] devis-glow-active"
+                  >
+                    <div>
+                      {/* Badge interactif Ouvrir en grand */}
+                      <div className="absolute top-5 right-5 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-studio/10 text-studio font-mono text-xs font-bold tracking-wider group-hover:bg-studio group-hover:text-linen-50 transition-all">
+                        <i data-lucide="maximize-2" className="w-3.5 h-3.5"></i>
+                        <span>Agrandir / PDF</span>
+                      </div>
+
+                      <div className="pb-4 border-b border-studio-powder/50 pr-28 sm:pr-32">
+                        <span className="font-mono text-xs uppercase tracking-widest text-studio font-bold block mb-1">RÉCAPITULATIF DIRECT</span>
+                        <h4 className="font-serif text-2xl sm:text-3xl font-normal text-ink">Votre Devis Estimé</h4>
+                      </div>
+
+                      {/* Liste des prestations sélectionnées */}
+                      <div className="py-4 flex flex-col gap-2.5 max-h-[280px] sm:max-h-[300px] overflow-y-auto pr-1.5">
+                        {selectedServices.length === 0 ? (
+                          <div className="py-14 text-center text-ink-subtle text-sm font-sans italic leading-relaxed">
+                            Aucune prestation sélectionnée pour l'instant.<br/>
+                            Cliquez sur les soins dans la colonne de gauche pour composer votre devis.
+                          </div>
+                        ) : (
+                          selectedServices.map(s => (
+                            <div key={s.id} className="flex items-center justify-between text-sm font-sans py-1.5 px-2.5 rounded-xl hover:bg-studio-powder/20 transition-colors">
+                              <span className="text-ink font-medium truncate max-w-[240px]">{s.name}</span>
+                              <div className="flex items-center gap-3">
+                                <span className="font-mono font-bold text-ink tabular-nums">{s.price},00 €</span>
+                                <button 
+                                  onClick={(e) => { e.stopPropagation(); toggleService(s); }}
+                                  className="text-ink-subtle hover:text-rose-500 p-0.5 rounded transition-colors"
+                                  title="Retirer"
+                                >
+                                  <i data-lucide="x" className="w-4 h-4"></i>
+                                </button>
+                              </div>
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Totaux & Bouton WhatsApp */}
+                    <div className="pt-4 border-t border-studio-powder/50 flex flex-col gap-3 mt-auto">
+                      <div className="flex items-center justify-between font-mono text-sm">
+                        <span className="text-ink-muted">Durée estimée :</span>
+                        <span className="font-semibold text-ink">{quoteDuration}</span>
+                      </div>
+                      <div className="flex items-center justify-between font-mono">
+                        <span className="text-base font-semibold text-ink">Total TTC :</span>
+                        <span className="text-3xl sm:text-4xl font-bold text-studio"><AnimatedPriceCounter value={quoteTotal} /></span>
+                      </div>
+
+                      {/* Double bouton WhatsApp + Treatwell */}
+                      <div className="flex flex-col gap-2.5 pt-1">
+                        <a 
+                          href={generateWhatsAppLink()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="w-full py-3.5 px-6 rounded-full bg-[#128C7E] hover:bg-[#075E54] text-linen-50 font-sans text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-sm transition-all active:scale-95"
+                        >
+                          <i data-lucide="message-circle" className="w-4 h-4"></i>
+                          <span>{selectedServices.length > 0 ? "Envoyer mon devis via WhatsApp" : "Contacter via WhatsApp"}</span>
+                        </a>
+
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); setQuoteModalOpen(true); }}
+                          className="w-full py-3 px-5 rounded-full bg-studio-powder/30 hover:bg-studio-powder/60 text-ink font-sans text-xs sm:text-sm font-semibold tracking-wide flex items-center justify-center gap-2 transition-all"
+                        >
+                          <i data-lucide="file-text" className="w-4 h-4 text-studio"></i>
+                          <span>Ouvrir en grand & Télécharger en PDF</span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* ============================================================== */}
+          {/* SECTION 3 : GALERIE INSPIRATIONS & SAVOIR-FAIRE (PHOTOS INSTAGRAM OFFICIELLES) */}
+          {/* ============================================================== */}
+          <section id="galerie" className="snap-section flex flex-col justify-center py-10 lg:py-16 px-4 sm:px-8 bg-linen-200/50 border-b border-studio-powder/20">
+            <div className="max-w-7xl mx-auto w-full my-auto">
+              
+              {/* En-tête de section épuré (sans mention textuelle Instagram ici) */}
+              <div className={`text-center max-w-2xl mx-auto mb-10 lg:mb-12 transition-all duration-1200 ease-in-out ${
+                visibleSections["galerie"] 
+                  ? "opacity-100 translate-y-0 filter-none" 
+                  : "opacity-0 -translate-y-6 blur-[4px]"
+              }`}>
+                <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.22em] text-studio font-bold block mb-2.5">
+                  INSPIRATIONS & SAVOIR-FAIRE DU STUDIO
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-ink font-normal tracking-tight mb-3">
+                  Inspirations & Signatures
+                </h2>
+                <p className="font-sans text-sm sm:text-base text-ink-muted max-w-xl mx-auto">
+                  Du nude délicat aux créations artistiques sur-mesure : un aperçu de nos poses d'exception réalisées au salon.
+                </p>
+              </div>
+
+              {/* Grille de Réalisations : 3 Photos Distinctes & Contrastées */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10">
+                
+                {/* Carte 1 : Reel Instagram Officiel C4TVe-vMSO7 (Tilt 3D Physique) */}
+                <TiltCard className={`rounded-3xl transition-all duration-1200 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  visibleSections["galerie"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 translate-y-8 blur-[4px]"
+                }`}>
+                  <a 
+                    href="https://www.instagram.com/reel/C4TVe-vMSO7/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block rounded-3xl overflow-hidden bg-linen-50 border-2 border-studio-powder/60 shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
+                  >
+                    <img 
+                      src="assets/instagram/signature_1.jpg" 
+                      alt="Signature Victor Nails Paris 13" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                  </a>
+                </TiltCard>
+
+                {/* Carte 2 : Reel Instagram Officiel C53Xh3jCx_d (Tilt 3D Physique) */}
+                <TiltCard className={`rounded-3xl transition-all duration-1200 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  visibleSections["galerie"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 translate-y-8 blur-[4px]"
+                }`}>
+                  <a 
+                    href="https://www.instagram.com/reel/C53Xh3jCx_d/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block rounded-3xl overflow-hidden bg-linen-50 border-2 border-studio-powder/60 shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
+                  >
+                    <img 
+                      src="assets/instagram/signature_2.jpg" 
+                      alt="Gainage & Soin Victor Nails Paris 13" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                  </a>
+                </TiltCard>
+
+                {/* Carte 3 : Post Instagram Officiel C2c8_JksgF4 (Tilt 3D Physique) */}
+                <TiltCard className={`rounded-3xl transition-all duration-1200 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  visibleSections["galerie"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 translate-y-8 blur-[4px]"
+                }`}>
+                  <a 
+                    href="https://www.instagram.com/p/C2c8_JksgF4/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block rounded-3xl overflow-hidden bg-linen-50 border-2 border-studio-powder/60 shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
+                  >
+                    <img 
+                      src="assets/instagram/signature_3.jpg" 
+                      alt="Création Nail Art Victor Nails Paris 13" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                  </a>
+                </TiltCard>
+
+              </div>
+
+              {/* Bouton Circulaire Extensible Logo Instagram Officiel */}
+              <div className="mt-8 sm:mt-12 flex items-center justify-center">
+                <a 
+                  href={SALON_DATA.instagramUrl}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Nous suivre sur Instagram"
+                  className="group inline-flex items-center h-13 sm:h-14 px-3.5 sm:px-4 rounded-full bg-linen-50 border-2 border-studio-powder/70 shadow-luxury hover:border-studio hover:shadow-luxury-hover text-studio active:scale-95 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer overflow-hidden"
+                >
+                  <svg 
+                    className="w-6 h-6 shrink-0 fill-none stroke-current transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" 
+                    viewBox="0 0 24 24" 
+                    strokeWidth="1.9" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                  
+                  <span className="max-w-0 opacity-0 group-hover:max-w-[260px] group-hover:opacity-100 group-hover:ml-3 group-hover:mr-1 whitespace-nowrap overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] font-sans text-xs sm:text-sm font-semibold tracking-wide text-ink group-hover:text-studio-dark inline-block">
+                    Nous suivre sur Instagram
+                  </span>
+                  
+                  <i 
+                    data-lucide="arrow-up-right" 
+                    className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:mr-1 text-studio transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0"
+                  ></i>
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* ============================================================== */}
+          {/* SECTION 4 : AVIS VÉRIFIÉS & ÉQUIPE (100VH SNAP STRICT)         */}
+          {/* ============================================================== */}
+          <section id="avis" className="snap-section flex flex-col justify-center py-8 lg:py-12 px-4 sm:px-8 bg-linen border-b border-studio-powder/20">
+            <div className="max-w-7xl mx-auto w-full my-auto">
+              
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Colonne Gauche : Avis clients certifiés avec transition In & Out */}
+                <div className={`lg:col-span-7 flex flex-col transition-all duration-1200 ease-in-out ${
+                  visibleSections["avis"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 -translate-y-6 blur-[4px]"
+                }`}>
+                  
+                  <span className="font-mono text-xs uppercase tracking-widest text-studio font-semibold block mb-1.5">
+                    AVIS CLIENTS CERTIFIÉS
+                  </span>
+                  
+                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-ink font-normal tracking-tight mb-3">
+                    Un rituel de soin où chaque détail compte.
+                  </h2>
+
+                  {/* Badge d'évaluation Treatwell */}
+                  <div className="inline-flex items-center gap-3 p-3 rounded-2xl bg-linen-200 border border-studio-powder/50 w-fit mb-5">
+                    <span className="font-mono font-bold text-xl text-ink tabular-nums">{SALON_DATA.rating}</span>
+                    <div className="flex text-amber-500 text-sm">
+                      ★★★★★
+                    </div>
+                    <span className="text-xs font-mono text-ink-muted border-l border-studio-powder/60 pl-3">
+                      Certifié sur {SALON_DATA.reviewCount} avis Treatwell
+                    </span>
+                  </div>
+
+                  {/* Liste des avis clients authentiques avec effet Spotlight & Tiroir d'extension */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    {REVIEWS_DATA.slice(0, 2).map((rev, idx) => (
+                      <div 
+                        key={idx} 
+                        onMouseEnter={() => setHoveredReviewIndex(idx)}
+                        onMouseLeave={() => setHoveredReviewIndex(null)}
+                        className={`p-4 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between cursor-default ${
+                          hoveredReviewIndex === idx
+                            ? "bg-linen-50 border-studio shadow-luxury scale-[1.015] ring-1 ring-studio/25 z-10"
+                            : hoveredReviewIndex !== null
+                              ? "bg-linen-50/70 border-studio-powder/30 opacity-65 scale-[0.985] filter blur-[0.2px]"
+                              : "bg-linen-50 border-studio-powder/40 shadow-sm"
+                        }`}
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex text-amber-500 text-xs gap-0.5">
+                              {"★".repeat(rev.rating)}
+                            </div>
+                            <span className="font-mono text-[10px] text-studio uppercase tracking-wider font-semibold">
+                              {rev.service}
+                            </span>
+                          </div>
+                          <p className="font-sans text-xs text-ink-muted leading-relaxed mb-3 italic">
+                            « {rev.text} »
+                          </p>
+                        </div>
+
+                        <div>
+                          <div className="pt-2 border-t border-studio-powder/30 flex items-center justify-between text-[11px] font-mono">
+                            <span className="font-semibold text-ink">{rev.author}</span>
+                            <span className="text-ink-subtle">{rev.date}</span>
+                          </div>
+
+                          {/* Extension de boîte révélée au survol (Option 1) */}
+                          <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                            hoveredReviewIndex === idx 
+                              ? "max-h-24 opacity-100 mt-2.5 pt-2.5 border-t border-studio-powder/40" 
+                              : "max-h-0 opacity-0 mt-0 pt-0 border-t-0 pointer-events-none"
+                          }`}>
+                            <div className="flex items-center justify-between text-[10px] font-mono mb-1.5">
+                              <span className="inline-flex items-center gap-1 text-emerald-700 font-semibold">
+                                <i data-lucide="check-circle" className="w-3.5 h-3.5 text-emerald-600"></i>
+                                Soin certifié Treatwell
+                              </span>
+                              <span className="text-ink-subtle text-[9.5px]">
+                                {rev.scoreDetails}
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap gap-1">
+                              {rev.tags.map((tag, tIdx) => (
+                                <span key={tIdx} className="px-2 py-0.5 rounded-full bg-studio-powder/25 text-studio font-mono text-[9px] uppercase tracking-wider font-semibold">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* 3e avis pleine largeur avec extension au survol */}
+                  <div 
+                    onMouseEnter={() => setHoveredReviewIndex(2)}
+                    onMouseLeave={() => setHoveredReviewIndex(null)}
+                    className={`mt-3.5 p-4 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default ${
+                      hoveredReviewIndex === 2
+                        ? "bg-linen-50 border-studio shadow-luxury scale-[1.01] ring-1 ring-studio/25 z-10"
+                        : hoveredReviewIndex !== null
+                          ? "bg-linen-50/70 border-studio-powder/30 opacity-65 scale-[0.99] filter blur-[0.2px]"
+                          : "bg-linen-50 border-studio-powder/40 shadow-sm"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <div className="flex text-amber-500 text-xs gap-0.5">
+                        {"★".repeat(REVIEWS_DATA[2].rating)}
+                      </div>
+                      <span className="font-mono text-[10px] text-studio uppercase tracking-wider font-semibold">
+                        {REVIEWS_DATA[2].service}
+                      </span>
+                    </div>
+                    <p className="font-sans text-xs text-ink-muted leading-relaxed mb-2.5 italic">
+                      « {REVIEWS_DATA[2].text} »
+                    </p>
+                    <div className="flex items-center justify-between text-[11px] font-mono text-ink-subtle">
+                      <span className="font-semibold text-ink">{REVIEWS_DATA[2].author}</span>
+                      <span>{REVIEWS_DATA[2].date}</span>
+                    </div>
+
+                    {/* Extension de boîte du 3e avis révélée au survol */}
+                    <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      hoveredReviewIndex === 2 
+                        ? "max-h-24 opacity-100 mt-2.5 pt-2.5 border-t border-studio-powder/40" 
+                        : "max-h-0 opacity-0 mt-0 pt-0 border-t-0 pointer-events-none"
+                    }`}>
+                      <div className="flex items-center justify-between text-[10px] font-mono mb-1.5">
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-semibold">
+                          <i data-lucide="check-circle" className="w-3.5 h-3.5 text-emerald-600"></i>
+                          Soin certifié Treatwell
+                        </span>
+                        <span className="text-ink-subtle text-[9.5px]">
+                          {REVIEWS_DATA[2].scoreDetails}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {REVIEWS_DATA[2].tags.map((tag, tIdx) => (
+                          <span key={tIdx} className="px-2 py-0.5 rounded-full bg-studio-powder/25 text-studio font-mono text-[9px] uppercase tracking-wider font-semibold">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-3.5">
+                    <a 
+                      href={SALON_DATA.treatwellUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 font-sans text-xs text-studio font-semibold hover:underline"
+                    >
+                      <span>Consulter l'ensemble des 715 avis sur Treatwell</span>
+                      <i data-lucide="arrow-up-right" className="w-3.5 h-3.5"></i>
+                    </a>
+                  </div>
+
+                </div>
+
+                {/* Colonne Droite : L'Équipe d'expertes (Hoa', Lyly, Sary) */}
+                <div id="studio" className={`lg:col-span-5 p-6 rounded-3xl bg-linen-200/80 border border-studio-powder/50 shadow-luxury flex flex-col transition-all duration-1200 delay-150 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  visibleSections["avis"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 translate-y-8 blur-[4px]"
+                }`}>
+                  
+                  <span className="font-mono text-xs uppercase tracking-widest text-studio font-semibold block mb-1">
+                    RENCONTREZ L'ÉQUIPE
+                  </span>
+                  
+                  <h3 className="font-serif text-xl sm:text-2xl text-ink font-normal mb-3.5">
+                    L'Excellence du Geste
+                  </h3>
+
+                  <div className="flex flex-col gap-2.5">
+                    {SALON_DATA.team.map((member, i) => (
+                      <div 
+                        key={i} 
+                        onMouseEnter={() => setHoveredTeamIndex(i)}
+                        onMouseLeave={() => setHoveredTeamIndex(null)}
+                        className={`p-3.5 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col cursor-default ${
+                          hoveredTeamIndex === i 
+                            ? "bg-linen-50 border-studio shadow-luxury ring-1 ring-studio/25 scale-[1.015] -translate-y-0.5 z-10" 
+                            : hoveredTeamIndex !== null 
+                              ? "bg-linen-50/70 border-studio-powder/30 opacity-70 scale-[0.99]"
+                              : "bg-linen-50 border-studio-powder/40 shadow-sm"
+                        }`}
+                      >
+                        <div className="flex items-start gap-3.5">
+                          <div className={`w-9 h-9 rounded-full flex items-center justify-center font-serif font-bold text-sm shrink-0 transition-all duration-300 ${
+                            hoveredTeamIndex === i 
+                              ? "bg-studio text-linen-50 shadow-sm scale-105" 
+                              : "bg-studio-powder/50 text-studio"
+                          }`}>
+                            {member.name.charAt(0)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2 mb-0.5">
+                              <h4 className="font-sans font-semibold text-sm text-ink">{member.name}</h4>
+                              <span className="font-mono text-[10px] text-studio uppercase tracking-wider">{member.role}</span>
+                            </div>
+                            <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                              {member.bio}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Extension de boîte révélée au survol (Option 3 - sans bouton d'action) */}
+                        <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                          hoveredTeamIndex === i 
+                            ? "max-h-24 opacity-100 mt-2.5 pt-2.5 border-t border-studio-powder/40" 
+                            : "max-h-0 opacity-0 mt-0 pt-0 border-t-0 pointer-events-none"
+                        }`}>
+                          <div className="flex items-center gap-1.5 text-[11px] font-sans font-medium text-studio mb-1.5">
+                            <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-ink">{member.experience}</span>
+                            <span className="text-ink-subtle">•</span>
+                            <span className="text-ink-muted italic font-serif text-[11px] truncate">{member.signature}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            {member.specialties.map((spec, sIdx) => (
+                              <span key={sIdx} className="px-2 py-0.5 rounded-full bg-studio-powder/30 text-ink text-[10px] font-mono tracking-wide">
+                                #{spec}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 pt-3.5 border-t border-studio-powder/40 flex items-center justify-between text-xs font-sans text-ink-muted">
+                    <span>Atmosphère moderne & feutrée</span>
+                    <span className="font-mono text-[11px] text-ink-subtle">Paris 13</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* ============================================================== */}
+          {/* SECTION 5 : ACCÈS PRATIQUE & FOOTER (100VH SNAP STRICT)        */}
+          {/* ============================================================== */}
+          <section id="contact" className="snap-section flex flex-col justify-center pt-24 sm:pt-28 lg:py-12 pb-6 sm:pb-8 px-4 sm:px-8 bg-linen-200/60 overflow-hidden relative">
+            <div className="max-w-7xl mx-auto w-full my-auto perspective-1500 relative">
+              
+              {/* Grand texte cinétique monumental au deuxième plan (légèrement chevauché par la box) avec entrée théâtrale synchronisée */}
+              <div 
+                className={`absolute -top-12 sm:-top-16 lg:-top-20 left-0 sm:left-2 lg:left-4 z-0 pointer-events-none select-none overflow-hidden max-w-[95vw] sm:max-w-none pr-4 transition-all duration-1200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  visibleSections["contact"] 
+                    ? "opacity-100 translate-y-0 filter-none" 
+                    : "opacity-0 translate-y-10 blur-[6px]"
+                }`}
+                aria-hidden="true"
+              >
+                <div className="font-serif italic text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-ink/75 sm:text-ink/80 tracking-tight leading-none drop-shadow-sm flex flex-wrap items-baseline">
+                  {contactHoverText.split(" ").map((word, wIdx, arr) => (
+                    <span 
+                      key={`${visibleSections["contact"] ? "vis" : "hid"}-${contactHoverText}-w-${wIdx}`} 
+                      className="inline-block whitespace-nowrap"
+                    >
+                      {word.split("").map((char, cIdx) => {
+                        const charIndex = contactHoverText.split(" ").slice(0, wIdx).join(" ").length + (wIdx > 0 ? 1 : 0) + cIdx;
+                        return (
+                          <span
+                            key={`${visibleSections["contact"] ? "vis" : "hid"}-${contactHoverText}-c-${wIdx}-${cIdx}`}
+                            className={`inline-block ${visibleSections["contact"] ? "animate-kinetic-char" : "opacity-0"}`}
+                            style={{ animationDelay: `${charIndex * 22}ms` }}
+                          >
+                            {char}
+                          </span>
+                        );
+                      })}
+                      {wIdx < arr.length - 1 && <span className="inline-block">&nbsp;</span>}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {!isMapFlipped ? (
+                /* -------------------------------------------------------- */
+                /* FACE 1 : INFORMATIONS DE CONTACT + RÉSERVATION           */
+                /* -------------------------------------------------------- */
+                <div 
+                  key="contact-front"
+                  className={`relative z-10 p-8 sm:p-10 lg:p-12 xl:p-14 rounded-3xl bg-linen-50 border-2 border-studio-powder/60 shadow-luxury animate-flip-in flex flex-col justify-between transition-all duration-1200 ${
+                    visibleSections["contact"] 
+                      ? "opacity-100 translate-y-0 filter-none" 
+                      : "opacity-0 translate-y-8 blur-[4px]"
+                  }`}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-stretch">
+                    
+                    {/* Informations de contact & Accès */}
+                    <div className="lg:col-span-7 flex flex-col justify-between">
+                      <div>
+                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-4xl xl:text-5xl text-ink font-normal tracking-tight mb-8">
+                          Prendre Soin de Vous à Paris 13
+                        </h2>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-7 gap-x-8 font-sans mb-8">
+                          
+                          <div className="flex flex-col">
+                            <span className="font-mono text-xs uppercase tracking-widest text-studio font-bold mb-1.5">
+                              Adresse
+                            </span>
+                            <span className="text-ink text-sm sm:text-base font-normal leading-snug">
+                              {SALON_DATA.address}
+                            </span>
+                            <span className="text-studio font-mono text-xs mt-1">
+                              {SALON_DATA.metro}
+                            </span>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <span className="font-mono text-xs uppercase tracking-widest text-studio font-bold mb-1.5">
+                              Horaires
+                            </span>
+                            <span className="text-ink text-sm sm:text-base font-normal leading-snug">
+                              {SALON_DATA.hours}
+                            </span>
+                            <span className="text-emerald-700 font-mono text-xs mt-1 font-medium">
+                              Sans interruption
+                            </span>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <span className="font-mono text-xs uppercase tracking-widest text-studio font-bold mb-1.5">
+                              Téléphone
+                            </span>
+                            <a 
+                              href={`tel:${SALON_DATA.phoneRaw}`} 
+                              className="text-ink hover:text-studio font-mono text-sm sm:text-base font-semibold transition-colors leading-snug"
+                            >
+                              {SALON_DATA.phone}
+                            </a>
+                            <span className="text-ink-subtle text-xs mt-1">
+                              Renseignements immédiats
+                            </span>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <span className="font-mono text-xs uppercase tracking-widest text-studio font-bold mb-1.5">
+                              Instagram
+                            </span>
+                            <a 
+                              href={SALON_DATA.instagramUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="text-ink hover:text-studio text-sm sm:text-base font-mono font-semibold transition-colors leading-snug"
+                            >
+                              @{SALON_DATA.instagram}
+                            </a>
+                            <span className="text-ink-subtle text-xs mt-1">
+                              Messages privés & looks
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      {/* Actions directes : WhatsApp */}
+                      <div className="flex items-center pt-2">
+                        <a 
+                          href={generateWhatsAppLink()}
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          onMouseEnter={() => setContactHoverText("Nous vous répondons de suite")}
+                          onMouseLeave={() => setContactHoverText("Nous vous attendons")}
+                          className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-studio text-linen-50 font-sans text-xs sm:text-sm font-bold uppercase tracking-wider shadow-luxury hover:bg-studio-dark hover:shadow-luxury-hover active:scale-[0.98] transition-all"
+                        >
+                          <span>Écrire sur WhatsApp</span>
+                          <i data-lucide="message-circle" className="w-4 h-4"></i>
+                        </a>
+                      </div>
+
+                    </div>
+
+                    {/* Bloc Appel à l'Action — Purifié sans box imbriquée */}
+                    <div className="lg:col-span-5 flex flex-col items-center lg:items-start justify-center text-center lg:text-left lg:border-l lg:border-studio-powder/35 lg:pl-10 xl:pl-14">
+                      <span className="font-mono text-xs uppercase tracking-widest text-studio font-bold mb-2">
+                        Réservation en direct
+                      </span>
+                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-ink mb-2.5">
+                        Réserver en 1 Minute
+                      </h3>
+                      <p className="font-sans text-xs sm:text-sm text-ink-muted mb-6 max-w-sm leading-relaxed">
+                        Choisissez votre prestation en direct ou contactez Hoa' et son équipe sans aucun frais d'intermédiaire.
+                      </p>
+                      
+                      {/* BOUTON TREATWELL RIGOUREUSEMENT CENTRÉ */}
+                      <a 
+                        href={SALON_DATA.treatwellUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onMouseEnter={() => setContactHoverText("À tout de suite")}
+                        onMouseLeave={() => setContactHoverText("Nous vous attendons")}
+                        className="w-full sm:w-auto inline-flex items-center justify-center text-center py-4 px-8 rounded-full bg-studio text-linen-50 font-sans text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-studio-dark active:scale-[0.98] transition-all shadow-luxury mb-3.5 group cursor-pointer"
+                      >
+                        <span className="tracking-wider">Choisir un créneau sur Treatwell</span>
+                      </a>
+                      
+                      <div className="flex items-center gap-1.5 font-mono text-[11px] text-ink-subtle">
+                        <i data-lucide="shield-check" className="w-3.5 h-3.5 text-studio"></i>
+                        <span>Confirmation immédiate par SMS & email</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  {/* Mention discrète alignée en bas à droite du composant */}
+                  <div className="w-full flex justify-end pt-5 mt-5 border-t border-studio-powder/35">
+                    <button 
+                      onClick={() => setIsMapFlipped(true)}
+                      className="group inline-flex items-center gap-2.5 font-sans text-xs sm:text-sm text-ink-muted hover:text-studio transition-colors focus:outline-none cursor-pointer py-1"
+                    >
+                      <span className="underline underline-offset-4 decoration-studio-powder/70 group-hover:decoration-studio font-medium">
+                        Cliquez pour découvrir la carte
+                      </span>
+                      <span className="text-studio font-mono group-hover:translate-x-1.5 transition-transform text-sm">→</span>
+                    </button>
+                  </div>
+
+                </div>
+              ) : (
+                /* -------------------------------------------------------- */
+                /* FACE 2 : CARTE GOOGLE MAPS GRAND FORMAT (FLIPPÉE)        */
+                /* -------------------------------------------------------- */
+                <div 
+                  key="contact-back"
+                  className="relative z-10 p-8 sm:p-10 lg:p-12 xl:p-14 rounded-3xl bg-linen-50 border-2 border-studio-powder/60 shadow-luxury animate-flip-in flex flex-col justify-between"
+                >
+                  
+                  {/* Barre supérieure de la face arrière */}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-studio-powder/40 shrink-0">
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-12 h-12 rounded-2xl bg-studio/15 text-studio flex items-center justify-center shrink-0">
+                        <i data-lucide="map-pin" className="w-6 h-6"></i>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="font-mono text-[11px] uppercase tracking-widest text-studio font-bold">
+                          PLAN D'ACCÈS DU SALON · PARIS 13E
+                        </span>
+                        <h3 className="font-serif text-2xl sm:text-3xl font-normal text-ink">
+                          Victor Nails — 95 Rue de Patay, 75013 Paris
+                        </h3>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => setIsMapFlipped(false)}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-linen-200 text-ink font-sans text-xs sm:text-sm font-semibold hover:bg-studio hover:text-linen-50 active:scale-95 transition-all shadow-sm cursor-pointer shrink-0"
+                    >
+                      <span>←</span>
+                      <span>Revenir aux informations</span>
+                    </button>
+                  </div>
+
+                  {/* Carte Interactive Grand Format avec repère exact sur 95 Rue de Patay */}
+                  <div className="my-6 rounded-3xl overflow-hidden border-2 border-studio-powder/70 shadow-inner relative h-[420px] sm:h-[480px] lg:h-[520px] xl:h-[560px] bg-linen-200">
+                    <iframe 
+                      src="https://www.openstreetmap.org/export/embed.html?bbox=2.368%2C48.823%2C2.378%2C48.828&layer=mapnik&marker=48.8258%2C2.3732"
+                      className="w-full h-full border-0 filter saturate-[0.9] contrast-[1.05]"
+                      title="Carte de localisation Victor Nails Paris 13"
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+
+                  {/* Barre inférieure : repères métro & itinéraire externe */}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-studio-powder/40 shrink-0 font-sans text-xs sm:text-sm text-ink-muted">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="px-3 py-1 rounded-full bg-studio/15 text-studio font-mono text-xs font-bold">Métro 14</span>
+                      <span>Olympiades (250m) · BNF (350m)</span>
+                      <span className="text-ink-subtle">· Bus 27, 62, 64 (Patay - Tolbiac)</span>
+                    </div>
+
+                    <a 
+                      href={`https://maps.google.com/?q=${encodeURIComponent(SALON_DATA.address)}`}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-studio text-linen-50 font-sans text-xs sm:text-sm font-semibold hover:bg-studio-dark active:scale-95 transition-all shadow-sm"
+                    >
+                      <span>Ouvrir dans Google Maps</span>
+                      <span>↗</span>
+                    </a>
+                  </div>
+
+                </div>
+              )}
+
+            </div>
+          </section>
+
+          {/* ============================================================== */}
+          {/* SECTION 6 : FOOTER MONUMENTAL ÉDITORIAL (RÉFÉRENCE GAPSY)     */}
+          {/* ============================================================== */}
+          <footer 
+            id="section-footer" 
+            className="snap-section flex flex-col justify-between relative overflow-hidden bg-linen select-none transition-all duration-1200 ease-in-out"
+          >
+            {/* PARTIE SUPÉRIEURE : TITRE MONUMENTAL "VICTOR NAILS" SUR FOND LIN */}
+            <div className={`flex-1 flex flex-col justify-end items-center px-4 sm:px-8 pt-8 sm:pt-12 overflow-hidden transition-all duration-1200 ${
+              visibleSections["section-footer"] 
+                ? "opacity-100 translate-y-0 filter-none" 
+                : "opacity-0 translate-y-12 blur-[4px]"
+            }`}>
+              <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+                <span className="font-serif font-normal text-ink tracking-tight text-center leading-none select-none text-[15vw] sm:text-[14vw] lg:text-[12.5vw] whitespace-nowrap -mb-[24px] pointer-events-none">
+                  VICTOR NAILS
+                </span>
+              </div>
+            </div>
+
+            {/* PARTIE INFÉRIEURE : BLOC SOMBRE PROFOND LUXE (STYLE GAPSY BAKERY) */}
+            <div className="bg-[#0C121D] text-[#F5F3EE] px-6 sm:px-12 lg:px-16 pt-10 sm:pt-14 pb-8 sm:pb-10 transition-all shrink-0">
+              <div className="max-w-7xl mx-auto flex flex-col justify-between gap-10 lg:gap-14">
+                
+                {/* LIGNE 1 : SOUS-TITRE ÉDITORIAL & LIENS DE NAVIGATION MAJUSCULES */}
+                <div className={`flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-1200 delay-100 ${
+                  visibleSections["section-footer"] 
+                    ? "opacity-100 translate-y-0" 
+                    : "opacity-0 translate-y-6"
+                }`}>
+                  <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.2em] font-medium text-[#E5E0D5] max-w-md leading-relaxed">
+                    L'art du soin ongulaire & de la manucure russe d'exception
+                  </p>
+                  
+                  <nav aria-label="Navigation pied de page" className="flex flex-wrap items-center gap-6 sm:gap-8 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-studio-powder">
+                    <button onClick={() => scrollToSection("section-hero")} className="hover:text-linen-50 transition-colors">Accueil</button>
+                    <button onClick={() => scrollToSection("prestations")} className="hover:text-linen-50 transition-colors">Prestations</button>
+                    <button onClick={() => scrollToSection("galerie")} className="hover:text-linen-50 transition-colors">Inspirations</button>
+                    <button onClick={() => scrollToSection("avis")} className="hover:text-linen-50 transition-colors">Avis & Équipe</button>
+                    <button onClick={() => scrollToSection("contact")} className="hover:text-linen-50 transition-colors">Accès</button>
+                  </nav>
+                </div>
+
+                {/* LIGNE 2 : HORAIRES, CONTACTS & BOUTONS SOCIAUX CIRCULAIRES */}
+                <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-end transition-all duration-1200 delay-200 ${
+                  visibleSections["section-footer"] 
+                    ? "opacity-100 translate-y-0" 
+                    : "opacity-0 translate-y-6"
+                }`}>
+                  
+                  {/* Colonne 1 : Working Hours */}
+                  <div className="md:col-span-4 flex flex-col gap-2">
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-studio-powder font-bold">
+                      Horaires d'ouverture :
+                    </p>
+                    <div className="flex flex-col gap-1 font-sans text-xs sm:text-sm text-linen-300">
+                      <p className="tabular-nums">Lundi – Samedi : 10h00 – 19h30</p>
+                      <p className="text-ink-subtle">Dimanche : Fermé</p>
+                    </div>
+                  </div>
+
+                  {/* Colonne 2 : Contacts */}
+                  <div className="md:col-span-4 flex flex-col gap-2">
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-studio-powder font-bold">
+                      Contacts & Salon :
+                    </p>
+                    <div className="flex flex-col gap-1 font-sans text-xs sm:text-sm text-linen-300">
+                      <p className="tabular-nums">
+                        Téléphone : <a href={`tel:${SALON_DATA.phoneRaw}`} className="hover:text-studio-light transition-colors">{SALON_DATA.phone}</a>
+                      </p>
+                      <p>
+                        Adresse : <span className="text-linen-100">{SALON_DATA.address}</span>
+                      </p>
+                      <p className="text-studio-powder text-xs">
+                        {SALON_DATA.metro}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Colonne 3 : Pastilles Circulaires Sociales (Style Gapsy 1:1) */}
+                  <div className="md:col-span-4 flex items-center md:justify-end gap-3 sm:gap-4">
+                    {/* WhatsApp */}
+                    <a 
+                      href={generateWhatsAppLink()} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full bg-linen-100 text-[#0C121D] hover:scale-110 hover:bg-studio hover:text-linen-50 active:scale-95 transition-all flex items-center justify-center shadow-md group"
+                      aria-label="Contacter Victor Nails sur WhatsApp"
+                      title="WhatsApp Direct"
+                    >
+                      <i data-lucide="message-circle" className="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    </a>
+
+                    {/* Treatwell */}
+                    <a 
+                      href={SALON_DATA.treatwellUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full bg-linen-100 text-[#0C121D] hover:scale-110 hover:bg-studio hover:text-linen-50 active:scale-95 transition-all flex items-center justify-center shadow-md group"
+                      aria-label="Réserver sur Treatwell"
+                      title="Réservation en ligne"
+                    >
+                      <i data-lucide="calendar" className="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    </a>
+
+                    {/* Instagram */}
+                    <a 
+                      href={SALON_DATA.instagramUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full bg-linen-100 text-[#0C121D] hover:scale-110 hover:bg-studio hover:text-linen-50 active:scale-95 transition-all flex items-center justify-center shadow-md group"
+                      aria-label="Page Instagram Victor Nails"
+                      title="Instagram @victor.nails13"
+                    >
+                      <svg className="w-5 h-5 fill-none stroke-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                    </a>
+                  </div>
+
+                </div>
+
+                {/* LIGNE DE COLOPHON MINIMALE */}
+                <div className="pt-6 border-t border-linen-100/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-ink-subtle">
+                  <span>© 2026 VICTOR NAILS PARIS · Tous droits réservés</span>
+                  <span>Conçu & Propulsé par Usine Web Locale (Canal 03) · Norme Anti-Slop Sanzo Wada #139</span>
+                </div>
+
+              </div>
+            </div>
+          </footer>
+
+
+
+
+          
+          {/* ============================================================== */}
+          {/* AXE C : FLOATING PILL & BOTTOM SHEET DRAWER SUR MOBILE         */}
+          {/* ============================================================== */}
+          {selectedServices.length > 0 && (
+            <div className="lg:hidden fixed bottom-5 left-4 right-4 z-40 animate-badge-pop">
+              <button 
+                onClick={() => setMobileDrawerOpen(true)}
+                className="w-full py-3.5 px-6 rounded-full bg-studio text-linen-50 shadow-2xl flex items-center justify-between font-sans text-sm font-semibold active:scale-95 transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-6 h-6 rounded-full bg-linen-50 text-studio font-mono text-xs font-bold flex items-center justify-center">
+                    {selectedServices.length}
+                  </span>
+                  <span>Voir mon Devis Direct</span>
+                </div>
+                <div className="font-mono text-base font-bold tabular-nums">
+                  {quoteTotal},00 €
+                </div>
+              </button>
+            </div>
+          )}
+
+          {/* Drawer Bottom Sheet Organique Mobile */}
+          {mobileDrawerOpen && (
+            <div 
+              className="lg:hidden fixed inset-0 z-50 bg-ink/60 backdrop-blur-sm flex flex-col justify-end animate-fade-in"
+              onClick={() => setMobileDrawerOpen(false)}
+            >
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                className="bg-linen-50 rounded-t-[32px] p-6 pt-3 shadow-2xl flex flex-col max-h-[82vh] animate-drawer-up border-t-2 border-studio/30"
+              >
+                <div className="drawer-grabber"></div>
+
+                <div className="flex items-center justify-between pb-3.5 border-b border-studio-powder/50">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-studio font-bold">VOTRE PANIER EN DIRECT</span>
+                    <h3 className="font-serif text-xl font-normal text-ink">Devis Personnalisé</h3>
+                  </div>
+                  <button 
+                    onClick={() => setMobileDrawerOpen(false)}
+                    className="w-8 h-8 rounded-full bg-linen-200 flex items-center justify-center text-ink-muted"
+                  >
+                    <i data-lucide="x" className="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div className="py-4 flex flex-col gap-2.5 overflow-y-auto max-h-[45vh] pr-1">
+                  {selectedServices.map(s => (
+                    <div key={s.id} className="flex items-center justify-between text-sm py-1.5 px-2 bg-linen-200/50 rounded-xl">
+                      <span className="text-ink font-medium truncate max-w-[200px]">{s.name}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono font-bold text-ink">{s.price},00 €</span>
+                        <button onClick={() => toggleService(s)} className="text-ink-subtle hover:text-rose-500 p-1">
+                          <i data-lucide="x" className="w-4 h-4"></i>
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-3 border-t border-studio-powder/50 flex flex-col gap-2 mt-auto">
+                  <div className="flex items-center justify-between font-mono text-xs">
+                    <span className="text-ink-muted">Durée estimée :</span>
+                    <span className="font-semibold text-ink">{quoteDuration}</span>
+                  </div>
+                  <div className="flex items-center justify-between font-mono">
+                    <span className="text-sm font-semibold text-ink">Total TTC :</span>
+                    <span className="text-2xl font-bold text-studio">{quoteTotal},00 €</span>
+                  </div>
+
+                  <a 
+                    href={generateWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3.5 px-4 rounded-full bg-[#128C7E] text-linen-50 font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-1 shadow-md"
+                  >
+                    <i data-lucide="message-circle" className="w-4 h-4"></i>
+                    <span>Envoyer sur WhatsApp</span>
+                  </a>
+
+                  <button 
+                    onClick={() => { setMobileDrawerOpen(false); setQuoteModalOpen(true); }}
+                    className="w-full py-2.5 px-4 rounded-full bg-studio-powder/40 text-ink font-sans text-xs font-semibold flex items-center justify-center gap-2"
+                  >
+                    <i data-lucide="file-text" className="w-3.5 h-3.5 text-studio"></i>
+                    <span>Télécharger le Devis en PDF</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ============================================================== */}
+          {/* MODALE HAUTE JOAILLERIE : DEVIS EN GRAND & TÉLÉCHARGEMENT PDF */}
+          {/* ============================================================== */}
+          {quoteModalOpen && (
+            <div 
+              role="dialog"
+              aria-modal="true"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-ink/70 backdrop-blur-md animate-fade-in"
+              onClick={() => setQuoteModalOpen(false)}
+            >
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                className="relative w-full max-w-2xl bg-linen-50 border-2 border-studio/50 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col max-h-[90vh] overflow-y-auto animate-scale-up"
+              >
+                {/* Bouton Fermer */}
+                <button 
+                  onClick={() => setQuoteModalOpen(false)}
+                  className="absolute top-5 right-5 w-10 h-10 rounded-full bg-linen-200 text-ink-muted hover:text-ink hover:bg-linen-300 flex items-center justify-center transition-all"
+                  aria-label="Fermer la modale"
+                >
+                  <i data-lucide="x" className="w-5 h-5"></i>
+                </button>
+
+                {/* En-tête Modale */}
+                <div className="border-b border-studio-powder/60 pb-6 mb-6">
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-studio font-bold block mb-1">
+                    INSTITUT VICTOR NAILS PARIS 13
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl text-ink font-normal">
+                    Devis Estimatif Personnalisé
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-ink-muted mt-1">
+                    95 Rue de Patay · 75013 Paris · Métro 14 Olympiades / BNF · 06 59 13 46 89
+                  </p>
+                </div>
+
+                {/* Contenu Déroulant des Prestations */}
+                <div className="flex-1 flex flex-col gap-3 mb-6">
+                  <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-ink-subtle pb-2 border-b border-studio-powder/40">
+                    <span>Prestation ({selectedServices.length})</span>
+                    <span>Durée / Tarif</span>
+                  </div>
+
+                  {selectedServices.length === 0 ? (
+                    <div className="py-8 text-center text-ink-subtle italic text-sm">
+                      Aucune prestation sélectionnée pour le moment.<br/>
+                      Fermez la modale et cliquez sur les soins désirés dans la carte.
+                    </div>
+                  ) : (
+                    selectedServices.map((s, idx) => (
+                      <div key={idx} className="flex items-center justify-between py-2 border-b border-studio-powder/20 font-sans text-sm">
+                        <div>
+                          <p className="font-semibold text-ink">{s.name}</p>
+                          <p className="text-xs text-ink-muted">{s.desc}</p>
+                        </div>
+                        <div className="flex flex-col items-end shrink-0 pl-4 font-mono">
+                          <span className="font-bold text-ink tabular-nums">{s.price},00 €</span>
+                          <span className="text-[11px] text-ink-subtle">{s.time}</span>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+
+                {/* Totaux & Synthèse */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-linen-200 border border-studio-powder/60 mb-6">
+                  <div className="flex justify-between items-center text-sm font-mono text-ink-muted mb-2">
+                    <span>Durée totale estimée en cabine :</span>
+                    <span className="font-bold text-ink">{quoteDuration}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-base sm:text-lg font-mono text-ink pt-2 border-t border-studio-powder/40">
+                    <span className="font-semibold">Montant Total Estimé (TTC) :</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-studio tabular-nums">{quoteTotal},00 €</span>
+                  </div>
+                </div>
+
+                {/* Actions : Téléchargement PDF & Envoi WhatsApp */}
+                <div className="flex flex-col sm:flex-row items-center gap-3 font-sans">
+                  <button 
+                    onClick={handleDownloadPDF}
+                    className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-studio hover:bg-studio-dark text-linen-50 font-semibold text-sm flex items-center justify-center gap-2 shadow-luxury transition-all active:scale-95"
+                  >
+                    <i data-lucide="download" className="w-4 h-4"></i>
+                    <span>Télécharger le Devis en PDF</span>
+                  </button>
+
+                  <a 
+                    href={generateWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-[#128C7E] hover:bg-[#075E54] text-linen-50 font-semibold text-sm flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95"
+                  >
+                    <i data-lucide="message-circle" className="w-4 h-4"></i>
+                    <span>Valider sur WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
+
+
+        </div>
+      );
+    }
+
+    // Rendu racine React 18 Production UMD
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<VictorNailsApp />);
+  </script>
+</body>
+</html>
