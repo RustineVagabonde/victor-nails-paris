@@ -140,11 +140,21 @@
       }
     }
 
+    /* CSS Scroll Snapping Doux & Fluide sur Mobile / Smartphone (Proximity SOTA) */
     @media (max-width: 1023px) {
+      html {
+        scroll-snap-type: y proximity;
+        scroll-behavior: smooth;
+        scroll-padding-top: 76px; /* Compense la hauteur de la navbar sticky */
+        -webkit-overflow-scrolling: touch;
+      }
       .snap-section {
-        min-height: auto !important;
-        height: auto !important;
-        scroll-snap-align: none !important;
+        min-height: auto;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
+      }
+      #section-hero {
+        min-height: 100svh;
       }
     }
 
@@ -1748,53 +1758,130 @@
                     <span>Réserver / Devis</span>
                   </a>
 
-                  {/* Bouton Menu Mobile */}
+                  {/* Bouton Menu Mobile Raffiné SOTA */}
                   <button 
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="lg:hidden p-2.5 rounded-xl bg-linen-200 text-ink hover:bg-studio-powder/50 active:scale-95 transition-all duration-800 ease-in-out"
-                    aria-label="Menu"
+                    className="lg:hidden inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-studio-powder/70 bg-linen-50/90 text-ink shadow-sm hover:border-studio active:scale-95 transition-all cursor-pointer"
+                    aria-label="Menu de navigation"
                   >
-                    <i data-lucide={mobileMenuOpen ? "x" : "menu"} className="w-5 h-5"></i>
+                    <span className="font-mono text-[11px] font-bold tracking-widest text-ink uppercase">
+                      {mobileMenuOpen ? "Fermer" : "Menu"}
+                    </span>
+                    <i data-lucide={mobileMenuOpen ? "x" : "menu"} className="w-4 h-4 text-studio"></i>
                   </button>
                 </div>
               </div>
+            </nav>
 
-              {/* Menu Déroulant Mobile */}
-              {mobileMenuOpen && (
-                <div className="lg:hidden mt-3 pt-3 border-t border-studio-powder/30 flex flex-col gap-3 px-2 font-sans text-sm text-ink font-medium">
-                  <button onClick={() => { scrollToSection("section-hero"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Accueil</button>
-                  <button onClick={() => { scrollToSection("prestations"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio flex items-center justify-between">
-                    <span>Prestations</span>
-                    {selectedServices.length > 0 && (
-                      <span className="px-2 py-0.5 rounded-full bg-studio text-linen-50 font-mono text-xs font-bold">
-                        {selectedServices.length} ({quoteTotal} €)
-                      </span>
-                    )}
+            {/* RIDEAU ÉDITORIAL PLEIN ÉCRAN MOBILE (SOTD CURTAIN SANS ACCORDÉON) */}
+            {mobileMenuOpen && (
+              <div 
+                className="fixed inset-0 z-50 bg-linen/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-8 animate-fade-in lg:hidden overflow-y-auto"
+                style={{ paddingTop: 'calc(1.25rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(1.25rem + env(safe-area-inset-bottom, 0px))' }}
+              >
+                {/* En-tête du Rideau Mobile */}
+                <div className="flex items-center justify-between pb-4 border-b border-studio-powder/40 shrink-0">
+                  <div className="flex flex-col">
+                    <span className="font-serif text-xl sm:text-2xl font-normal tracking-wide text-ink">
+                      VICTOR NAILS
+                    </span>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-studio font-semibold mt-0.5">
+                      Institut d'Onglerie · Paris 13
+                    </span>
+                  </div>
+                  <button 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-studio-powder/70 bg-linen-50 text-ink shadow-sm active:scale-95 transition-all cursor-pointer"
+                    aria-label="Fermer le menu"
+                  >
+                    <span className="font-mono text-[11px] font-bold tracking-widest uppercase">Fermer</span>
+                    <i data-lucide="x" className="w-4 h-4 text-studio"></i>
                   </button>
-                  <button onClick={() => { scrollToSection("galerie"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Inspirations</button>
-                  <button onClick={() => { scrollToSection("avis"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Avis & Équipe</button>
-                  <button onClick={() => { scrollToSection("contact"); setMobileMenuOpen(false); }} className="text-left py-1.5 hover:text-studio">Accès</button>
-                  <div className="pt-2 flex flex-col gap-2">
+                </div>
+
+                {/* Liens de navigation éditoriaux (Confort tactile absolu >= 48px) */}
+                <div className="flex flex-col justify-center gap-4 sm:gap-5 py-6 my-auto">
+                  <button 
+                    onClick={() => { scrollToSection("section-hero"); setMobileMenuOpen(false); }} 
+                    className="text-left font-serif text-2xl sm:text-3xl text-ink font-normal hover:text-studio transition-colors flex items-center justify-between py-2 group cursor-pointer"
+                  >
+                    <span className="group-hover:translate-x-2 transition-transform duration-300">01. Accueil</span>
+                    <i data-lucide="arrow-right" className="w-5 h-5 text-studio-powder group-hover:text-studio group-hover:translate-x-1 transition-all"></i>
+                  </button>
+
+                  <button 
+                    onClick={() => { scrollToSection("prestations"); setMobileMenuOpen(false); }} 
+                    className="text-left font-serif text-2xl sm:text-3xl text-ink font-normal hover:text-studio transition-colors flex items-center justify-between py-2 group cursor-pointer"
+                  >
+                    <span className="group-hover:translate-x-2 transition-transform duration-300">02. Prestations & Devis</span>
+                    <div className="flex items-center gap-2">
+                      {selectedServices.length > 0 && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-studio text-linen-50 font-mono text-xs font-bold">
+                          {selectedServices.length} ({quoteTotal} €)
+                        </span>
+                      )}
+                      <i data-lucide="arrow-right" className="w-5 h-5 text-studio-powder group-hover:text-studio group-hover:translate-x-1 transition-all"></i>
+                    </div>
+                  </button>
+
+                  <button 
+                    onClick={() => { scrollToSection("galerie"); setMobileMenuOpen(false); }} 
+                    className="text-left font-serif text-2xl sm:text-3xl text-ink font-normal hover:text-studio transition-colors flex items-center justify-between py-2 group cursor-pointer"
+                  >
+                    <span className="group-hover:translate-x-2 transition-transform duration-300">03. Inspirations & Savoir-Faire</span>
+                    <i data-lucide="arrow-right" className="w-5 h-5 text-studio-powder group-hover:text-studio group-hover:translate-x-1 transition-all"></i>
+                  </button>
+
+                  <button 
+                    onClick={() => { scrollToSection("avis"); setMobileMenuOpen(false); }} 
+                    className="text-left font-serif text-2xl sm:text-3xl text-ink font-normal hover:text-studio transition-colors flex items-center justify-between py-2 group cursor-pointer"
+                  >
+                    <span className="group-hover:translate-x-2 transition-transform duration-300">04. Avis Clients & Équipe</span>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs text-studio font-bold">4.9 ★</span>
+                      <i data-lucide="arrow-right" className="w-5 h-5 text-studio-powder group-hover:text-studio group-hover:translate-x-1 transition-all"></i>
+                    </div>
+                  </button>
+
+                  <button 
+                    onClick={() => { scrollToSection("contact"); setMobileMenuOpen(false); }} 
+                    className="text-left font-serif text-2xl sm:text-3xl text-ink font-normal hover:text-studio transition-colors flex items-center justify-between py-2 group cursor-pointer"
+                  >
+                    <span className="group-hover:translate-x-2 transition-transform duration-300">05. Accès & Salon</span>
+                    <i data-lucide="arrow-right" className="w-5 h-5 text-studio-powder group-hover:text-studio group-hover:translate-x-1 transition-all"></i>
+                  </button>
+                </div>
+
+                {/* Pied du menu : CTAs Officiels & Coordonnées */}
+                <div className="pt-4 border-t border-studio-powder/40 flex flex-col gap-3 shrink-0">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <a 
                       href={generateWhatsAppLink()} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center text-center py-3 rounded-full bg-studio text-linen-50 text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-studio-dark transition-all"
+                      className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-full bg-studio text-linen-50 text-xs font-bold uppercase tracking-wider shadow-luxury active:scale-95 transition-all text-center"
                     >
-                      <span className="w-full text-center">Contact Direct WhatsApp</span>
+                      <i data-lucide="message-circle" className="w-4 h-4"></i>
+                      <span>Contact Direct WhatsApp</span>
                     </a>
                     <a 
                       href={SALON_DATA.treatwellUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center text-center py-3 rounded-full border border-studio/40 text-studio text-xs font-bold uppercase tracking-wider hover:bg-studio/10 transition-all"
+                      className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-full border border-studio/50 bg-linen-50/80 text-studio text-xs font-bold uppercase tracking-wider active:scale-95 transition-all text-center"
                     >
-                      <span className="w-full text-center">Réserver sur Treatwell</span>
+                      <i data-lucide="calendar" className="w-4 h-4"></i>
+                      <span>Réserver sur Treatwell</span>
                     </a>
                   </div>
+
+                  <div className="flex items-center justify-between text-[11px] font-mono text-ink-subtle pt-1 px-1">
+                    <span>98 Bd Auguste Blanqui, Paris 13</span>
+                    <span>10h00 - 19h30</span>
+                  </div>
                 </div>
-              )}
-            </nav>
+              </div>
+            )}
 
             {/* HERO CONTENT AVEC ANIMATION D'ENTRÉE ET DE SORTIE */}
             <div className="flex-1 flex items-center px-4 sm:px-8 py-10 sm:py-14 lg:py-0 relative overflow-hidden">
@@ -2363,17 +2450,17 @@
 
               </div>
 
-              {/* Bouton Circulaire Extensible Logo Instagram Officiel */}
+              {/* Bouton Instagram Officiel Ergonomique SOTA */}
               <div className="mt-8 sm:mt-12 flex items-center justify-center">
                 <a 
-                  href={SALON_DATA.instagramUrl}
+                  href={SALON_DATA.instagramUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  aria-label="Nous suivre sur Instagram"
-                  className="group inline-flex items-center h-13 sm:h-14 px-3.5 sm:px-4 rounded-full bg-linen-50 border-2 border-studio-powder/70 shadow-luxury hover:border-studio hover:shadow-luxury-hover text-studio active:scale-95 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer overflow-hidden"
+                  aria-label="Nous suivre sur Instagram @victor.nails13"
+                  className="group inline-flex items-center justify-center h-12 sm:h-14 px-5 sm:px-6 rounded-full bg-linen-50 border-2 border-studio-powder/70 shadow-luxury hover:border-studio hover:shadow-luxury-hover text-studio active:scale-95 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   <svg 
-                    className="w-6 h-6 shrink-0 fill-none stroke-current transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" 
+                    className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 fill-none stroke-current transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" 
                     viewBox="0 0 24 24" 
                     strokeWidth="1.9" 
                     strokeLinecap="round" 
@@ -2384,13 +2471,13 @@
                     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                   </svg>
                   
-                  <span className="max-w-0 opacity-0 group-hover:max-w-[260px] group-hover:opacity-100 group-hover:ml-3 group-hover:mr-1 whitespace-nowrap overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] font-sans text-xs sm:text-sm font-semibold tracking-wide text-ink group-hover:text-studio-dark inline-block">
+                  <span className="ml-2.5 mr-1.5 whitespace-nowrap font-sans text-xs sm:text-sm font-semibold tracking-wide text-ink group-hover:text-studio-dark inline-block transition-colors">
                     Nous suivre sur Instagram
                   </span>
                   
                   <i 
                     data-lucide="arrow-up-right" 
-                    className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:mr-1 text-studio transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0"
+                    className="w-4 h-4 text-studio opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 shrink-0"
                   ></i>
                 </a>
               </div>
@@ -2437,9 +2524,10 @@
                     {REVIEWS_DATA.slice(0, 2).map((rev, idx) => (
                       <div 
                         key={idx} 
+                        onClick={() => setHoveredReviewIndex(hoveredReviewIndex === idx ? null : idx)}
                         onMouseEnter={() => { if (typeof window !== 'undefined' && window.innerWidth >= 1024) setHoveredReviewIndex(idx); }}
                         onMouseLeave={() => setHoveredReviewIndex(null)}
-                        className={`p-4 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between cursor-default ${
+                        className={`p-4 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between cursor-pointer ${
                           hoveredReviewIndex === idx
                             ? "bg-linen-50 border-studio shadow-luxury scale-[1.015] ring-1 ring-studio/25 z-10"
                             : hoveredReviewIndex !== null
@@ -2496,11 +2584,12 @@
                     ))}
                   </div>
 
-                  {/* 3e avis pleine largeur avec extension au survol */}
+                  {/* 3e avis pleine largeur avec extension au survol / clic mobile */}
                   <div 
+                    onClick={() => setHoveredReviewIndex(hoveredReviewIndex === 2 ? null : 2)}
                     onMouseEnter={() => { if (typeof window !== 'undefined' && window.innerWidth >= 1024) setHoveredReviewIndex(2); }}
                     onMouseLeave={() => setHoveredReviewIndex(null)}
-                    className={`mt-3.5 p-4 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default ${
+                    className={`mt-3.5 p-4 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer ${
                       hoveredReviewIndex === 2
                         ? "bg-linen-50 border-studio shadow-luxury scale-[1.01] ring-1 ring-studio/25 z-10"
                         : hoveredReviewIndex !== null
@@ -2582,9 +2671,10 @@
                     {SALON_DATA.team.map((member, i) => (
                       <div 
                         key={i} 
+                        onClick={() => setHoveredTeamIndex(hoveredTeamIndex === i ? null : i)}
                         onMouseEnter={() => { if (typeof window !== 'undefined' && window.innerWidth >= 1024) setHoveredTeamIndex(i); }}
                         onMouseLeave={() => setHoveredTeamIndex(null)}
-                        className={`p-3.5 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col cursor-default ${
+                        className={`p-3.5 rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col cursor-pointer ${
                           hoveredTeamIndex === i 
                             ? "bg-linen-50 border-studio shadow-luxury ring-1 ring-studio/25 scale-[1.015] -translate-y-0.5 z-10" 
                             : hoveredTeamIndex !== null 
@@ -2692,7 +2782,7 @@
                 /* -------------------------------------------------------- */
                 <div 
                   key="contact-front"
-                  className={`relative z-10 p-8 sm:p-10 lg:p-12 xl:p-14 rounded-3xl bg-linen-50 border-2 border-studio-powder/60 shadow-luxury animate-flip-in flex flex-col justify-between transition-all duration-1200 ${
+                  className={`relative z-10 p-5 sm:p-10 lg:p-12 xl:p-14 rounded-3xl bg-linen-50 border-2 border-studio-powder/60 shadow-luxury animate-flip-in flex flex-col justify-between transition-all duration-1200 ${
                     visibleSections["contact"] 
                       ? "opacity-100 translate-y-0 filter-none" 
                       : "opacity-0 translate-y-8 blur-[4px]"
@@ -2837,7 +2927,7 @@
                 /* -------------------------------------------------------- */
                 <div 
                   key="contact-back"
-                  className="relative z-10 p-8 sm:p-10 lg:p-12 xl:p-14 rounded-3xl bg-linen-50 border-2 border-studio-powder/60 shadow-luxury animate-flip-in flex flex-col justify-between"
+                  className="relative z-10 p-5 sm:p-10 lg:p-12 xl:p-14 rounded-3xl bg-linen-50 border-2 border-studio-powder/60 shadow-luxury animate-flip-in flex flex-col justify-between"
                 >
                   
                   {/* Barre supérieure de la face arrière */}
@@ -2914,7 +3004,7 @@
                 : "opacity-0 translate-y-12 blur-[4px]"
             }`}>
               <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
-                <span className="font-serif font-normal text-ink tracking-tight text-center leading-none select-none text-[14vw] sm:text-[14vw] lg:text-[12.5vw] whitespace-nowrap -mb-[8px] sm:-mb-[24px] pointer-events-none">
+                <span className="font-serif font-normal text-ink tracking-tight text-center leading-none select-none text-[10.5vw] sm:text-[14vw] lg:text-[12.5vw] whitespace-nowrap -mb-[8px] sm:-mb-[24px] pointer-events-none">
                   VICTOR NAILS
                 </span>
               </div>
@@ -3038,10 +3128,13 @@
           {/* AXE C : FLOATING PILL & BOTTOM SHEET DRAWER SUR MOBILE         */}
           {/* ============================================================== */}
           {selectedServices.length > 0 && (
-            <div className="lg:hidden fixed bottom-5 left-4 right-4 z-40 animate-badge-pop">
+            <div 
+              className="lg:hidden fixed left-4 right-4 z-40 animate-badge-pop"
+              style={{ bottom: 'calc(1.25rem + env(safe-area-inset-bottom, 0px))' }}
+            >
               <button 
                 onClick={() => setMobileDrawerOpen(true)}
-                className="w-full py-3.5 px-6 rounded-full bg-studio text-linen-50 shadow-2xl flex items-center justify-between font-sans text-sm font-semibold active:scale-95 transition-all"
+                className="w-full py-3.5 px-6 rounded-full bg-studio text-linen-50 shadow-2xl flex items-center justify-between font-sans text-sm font-semibold active:scale-95 transition-all cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
                   <span className="w-6 h-6 rounded-full bg-linen-50 text-studio font-mono text-xs font-bold flex items-center justify-center">
@@ -3064,7 +3157,8 @@
             >
               <div 
                 onClick={(e) => e.stopPropagation()}
-                className="bg-linen-50 rounded-t-[32px] p-6 pt-3 shadow-2xl flex flex-col max-h-[82vh] animate-drawer-up border-t-2 border-studio/30"
+                className="bg-linen-50 rounded-t-[32px] p-6 pt-3 shadow-2xl flex flex-col max-h-[85vh] animate-drawer-up border-t-2 border-studio/30"
+                style={{ paddingBottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))' }}
               >
                 <div className="drawer-grabber"></div>
 
