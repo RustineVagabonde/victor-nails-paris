@@ -140,21 +140,21 @@
       }
     }
 
-    /* CSS Scroll Snapping Doux & Fluide sur Mobile / Smartphone (Proximity SOTA) */
+    /* Défilement Mobile / Tactile : Défilement inertiel natif doux 60 FPS sans à-coups */
     @media (max-width: 1023px) {
       html {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none !important;
         scroll-behavior: smooth;
-        scroll-padding-top: 76px; /* Compense la hauteur de la navbar sticky */
+        scroll-padding-top: 72px; /* Compense la hauteur de la navbar sticky */
         -webkit-overflow-scrolling: touch;
       }
       .snap-section {
         min-height: auto;
-        scroll-snap-align: start;
+        scroll-snap-align: none !important;
         scroll-snap-stop: normal;
       }
       #section-hero {
-        min-height: 100svh;
+        min-height: auto;
       }
     }
 
@@ -711,9 +711,10 @@
       name: "Victor Nails",
       address: "95 Rue de Patay, 75013 Paris",
       metro: "Métro 14 — Olympiades & Bibliothèque François-Mitterrand (3 min)",
-      phone: "01 45 83 20 20",
-      phoneRaw: "+33145832020",
-      whatsapp: "33600000000",
+      phone: "07 49 39 97 68",
+      phoneRaw: "+33749399768",
+      landline: "01 45 83 20 20",
+      whatsapp: "33749399768",
       instagram: "victor.nails13",
       instagramUrl: "https://www.instagram.com/victor.nails13/",
       treatwellUrl: "https://www.treatwell.fr/salon/victor-nails/",
@@ -1647,16 +1648,14 @@
           </div>
 
           {/* ============================================================== */}
-          {/* SECTION 1 : HERO + NAVBAR + RÉASSURANCE (100VH SNAP STRICT)    */}
+          {/* STICKY LUXURY NAVBAR (PERMANENTE AU SCROLL MOBILE & DESKTOP)   */}
           {/* ============================================================== */}
-          <section id="section-hero" onMouseMove={handleHeroMouseMove} className="snap-section flex flex-col justify-between relative overflow-hidden bg-linen border-b border-studio-powder/20">
-            
-            {/* BARRE DE NAVIGATION PRINCIPALE ANIMÉE (ENTRÉE ORGANIQUE SYNCHRONISÉE AVEC L'ÉCLOSION DU SITE) */}
-            <nav className={`z-40 bg-linen/95 backdrop-blur-md py-4 sm:py-5 lg:py-6 px-4 sm:px-8 shrink-0 transition-all duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              (portalStage === 'light_fading' || portalStage === 'focus_rack' || portalStage === 'dismissed' || splashDismissed)
-                ? "opacity-100 translate-y-0" 
-                : "opacity-0 -translate-y-4 pointer-events-none"
-            }`}>
+          <header className={`sticky top-0 z-40 w-full bg-linen/95 backdrop-blur-md border-b border-studio-powder/25 py-3 sm:py-4 px-4 sm:px-8 shrink-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            (portalStage === 'light_fading' || portalStage === 'focus_rack' || portalStage === 'dismissed' || splashDismissed)
+              ? "opacity-100 translate-y-0" 
+              : "opacity-0 -translate-y-4 pointer-events-none"
+          }`}>
+            <nav className="max-w-7xl mx-auto flex items-center justify-between" aria-label="Navigation principale">
               <div className="max-w-7xl mx-auto flex items-center justify-between">
                 
                 {/* Logo de marque détachable : Berceau fantôme fixe + Logo volant FLIP vers le Hero */}
@@ -1758,10 +1757,10 @@
                     <span>Réserver / Devis</span>
                   </a>
 
-                  {/* Bouton Menu Mobile Raffiné SOTA */}
+                  {/* Bouton Menu Mobile Raffiné SOTA avec cible tactile confortable */}
                   <button 
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="lg:hidden inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-studio-powder/70 bg-linen-50/90 text-ink shadow-sm hover:border-studio active:scale-95 transition-all cursor-pointer"
+                    className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 min-h-[42px] rounded-full border border-studio-powder/70 bg-linen-50/90 text-ink shadow-sm hover:border-studio active:scale-95 transition-all cursor-pointer"
                     aria-label="Menu de navigation"
                   >
                     <span className="font-mono text-[11px] font-bold tracking-widest text-ink uppercase">
@@ -1772,6 +1771,7 @@
                 </div>
               </div>
             </nav>
+          </header>
 
             {/* RIDEAU ÉDITORIAL PLEIN ÉCRAN MOBILE (SOTD CURTAIN SANS ACCORDÉON) */}
             {mobileMenuOpen && (
@@ -1876,12 +1876,17 @@
                   </div>
 
                   <div className="flex items-center justify-between text-[11px] font-mono text-ink-subtle pt-1 px-1">
-                    <span>98 Bd Auguste Blanqui, Paris 13</span>
+                    <span>95 Rue de Patay, Paris 13</span>
                     <span>10h00 - 19h30</span>
                   </div>
                 </div>
               </div>
             )}
+
+          {/* ============================================================== */}
+          {/* SECTION 1 : HERO + RÉASSURANCE (100VH SNAP STRICT SUR DESKTOP) */}
+          {/* ============================================================== */}
+          <section id="section-hero" onMouseMove={handleHeroMouseMove} className="snap-section flex flex-col justify-between relative overflow-hidden bg-linen border-b border-studio-powder/20">
 
             {/* HERO CONTENT AVEC ANIMATION D'ENTRÉE ET DE SORTIE */}
             <div className="flex-1 flex items-center px-4 sm:px-8 py-10 sm:py-14 lg:py-0 relative overflow-hidden">
@@ -2141,37 +2146,40 @@
                 >
                   {/* BARRE DE FILTRE SITUÉE DIRECTEMENT AU-DESSUS DE LA LISTE */}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2 sm:p-2.5 rounded-2xl bg-linen-200/90 border border-studio-powder/50 font-mono text-xs">
-                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full">
-                      <button 
-                        onClick={() => setActiveCategory("all")}
-                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "all" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
-                      >
-                        Tous ({SERVICES_CATALOG.length})
-                      </button>
-                      <button 
-                        onClick={() => setActiveCategory("manucure")}
-                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "manucure" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
-                      >
-                        Manucure
-                      </button>
-                      <button 
-                        onClick={() => setActiveCategory("gel")}
-                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "gel" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
-                      >
-                        Gel
-                      </button>
-                      <button 
-                        onClick={() => setActiveCategory("pedicure")}
-                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "pedicure" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
-                      >
-                        Pédicure
-                      </button>
-                      <button 
-                        onClick={() => setActiveCategory("soins")}
-                        className={`whitespace-nowrap px-3 py-1.5 rounded-full transition-all shrink-0 ${activeCategory === "soins" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink"}`}
-                      >
-                        Nail Art
-                      </button>
+                    <div className="relative flex-1 overflow-hidden">
+                      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full pr-8 py-0.5">
+                        <button 
+                          onClick={() => setActiveCategory("all")}
+                          className={`whitespace-nowrap px-3.5 py-2 min-h-[38px] rounded-full transition-all shrink-0 cursor-pointer ${activeCategory === "all" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink bg-linen-50/50"}`}
+                        >
+                          Tous ({SERVICES_CATALOG.length})
+                        </button>
+                        <button 
+                          onClick={() => setActiveCategory("manucure")}
+                          className={`whitespace-nowrap px-3.5 py-2 min-h-[38px] rounded-full transition-all shrink-0 cursor-pointer ${activeCategory === "manucure" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink bg-linen-50/50"}`}
+                        >
+                          Manucure
+                        </button>
+                        <button 
+                          onClick={() => setActiveCategory("gel")}
+                          className={`whitespace-nowrap px-3.5 py-2 min-h-[38px] rounded-full transition-all shrink-0 cursor-pointer ${activeCategory === "gel" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink bg-linen-50/50"}`}
+                        >
+                          Gel
+                        </button>
+                        <button 
+                          onClick={() => setActiveCategory("pedicure")}
+                          className={`whitespace-nowrap px-3.5 py-2 min-h-[38px] rounded-full transition-all shrink-0 cursor-pointer ${activeCategory === "pedicure" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink bg-linen-50/50"}`}
+                        >
+                          Pédicure
+                        </button>
+                        <button 
+                          onClick={() => setActiveCategory("soins")}
+                          className={`whitespace-nowrap px-3.5 py-2 min-h-[38px] rounded-full transition-all shrink-0 cursor-pointer ${activeCategory === "soins" ? "bg-studio text-linen-50 font-bold shadow-sm" : "text-ink-muted hover:text-ink bg-linen-50/50"}`}
+                        >
+                          Nail Art
+                        </button>
+                      </div>
+                      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-linen-200 to-transparent sm:hidden"></div>
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0">
@@ -2385,11 +2393,11 @@
                 </p>
               </div>
 
-              {/* Grille de Réalisations : 3 Photos Distinctes & Contrastées */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10">
+              {/* Grille de Réalisations : 3 Photos Équilibrées & Compactes */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8 items-stretch">
                 
-                {/* Carte 1 : Reel Instagram Officiel C4TVe-vMSO7 (Tilt 3D Physique) */}
-                <TiltCard className={`rounded-3xl transition-all duration-1200 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                {/* Carte 1 : Reel Instagram Officiel C4TVe-vMSO7 */}
+                <TiltCard className={`rounded-2xl sm:rounded-3xl transition-all duration-1200 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   visibleSections["galerie"] 
                     ? "opacity-100 translate-y-0 filter-none" 
                     : "opacity-0 translate-y-8 blur-[4px]"
@@ -2398,7 +2406,7 @@
                     href="https://www.instagram.com/reel/C4TVe-vMSO7/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block rounded-3xl overflow-hidden bg-linen-50 border border-studio-powder/60 shadow-md sm:shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
+                    className="block rounded-2xl sm:rounded-3xl overflow-hidden bg-linen-50 border border-studio-powder/60 shadow-md sm:shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
                   >
                     <img 
                       src="assets/instagram/signature_1.jpg" 
@@ -2408,8 +2416,8 @@
                   </a>
                 </TiltCard>
 
-                {/* Carte 2 : Reel Instagram Officiel C53Xh3jCx_d (Tilt 3D Physique) */}
-                <TiltCard className={`rounded-3xl transition-all duration-1200 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                {/* Carte 2 : Reel Instagram Officiel C53Xh3jCx_d */}
+                <TiltCard className={`rounded-2xl sm:rounded-3xl transition-all duration-1200 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   visibleSections["galerie"] 
                     ? "opacity-100 translate-y-0 filter-none" 
                     : "opacity-0 translate-y-8 blur-[4px]"
@@ -2418,7 +2426,7 @@
                     href="https://www.instagram.com/reel/C53Xh3jCx_d/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block rounded-3xl overflow-hidden bg-linen-50 border border-studio-powder/60 shadow-md sm:shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
+                    className="block rounded-2xl sm:rounded-3xl overflow-hidden bg-linen-50 border border-studio-powder/60 shadow-md sm:shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
                   >
                     <img 
                       src="assets/instagram/signature_2.jpg" 
@@ -2428,8 +2436,8 @@
                   </a>
                 </TiltCard>
 
-                {/* Carte 3 : Post Instagram Officiel C2c8_JksgF4 (Tilt 3D Physique) */}
-                <TiltCard className={`rounded-3xl transition-all duration-1200 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                {/* Carte 3 : Post Instagram Officiel C2c8_JksgF4 */}
+                <TiltCard className={`col-span-2 md:col-span-1 rounded-2xl sm:rounded-3xl transition-all duration-1200 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   visibleSections["galerie"] 
                     ? "opacity-100 translate-y-0 filter-none" 
                     : "opacity-0 translate-y-8 blur-[4px]"
@@ -2438,7 +2446,7 @@
                     href="https://www.instagram.com/p/C2c8_JksgF4/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block rounded-3xl overflow-hidden bg-linen-50 border border-studio-powder/60 shadow-md sm:shadow-luxury group h-full relative aspect-[3/4] sm:aspect-[4/5] cursor-pointer"
+                    className="block rounded-2xl sm:rounded-3xl overflow-hidden bg-linen-50 border border-studio-powder/60 shadow-md sm:shadow-luxury group h-full relative aspect-[16/9] md:aspect-[4/5] cursor-pointer"
                   >
                     <img 
                       src="assets/instagram/signature_3.jpg" 
@@ -3113,7 +3121,7 @@
                 {/* LIGNE DE COLOPHON MINIMALE */}
                 <div className="pt-6 border-t border-linen-100/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-ink-subtle">
                   <span>© 2026 VICTOR NAILS PARIS · Tous droits réservés</span>
-                  <span>Conçu & Propulsé par Usine Web Locale (Canal 03) · Norme Anti-Slop Sanzo Wada #139</span>
+                  <span>Maison d’Ingénierie & Création Numérique · Conçu avec distinction par Rei Brain</span>
                 </div>
 
               </div>
